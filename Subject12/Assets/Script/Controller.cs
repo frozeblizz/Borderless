@@ -6,14 +6,16 @@ public class Controller : MonoBehaviour {
 
     public int moveSpeed = 30;
 
-    private bool controlled;
-
     public Controller Control;
+    private RotateToMouse rotate;
+
     private GameObject cachePlayer;
+    public GameObject AI;
 
     void Start ()
     {
-               
+        rotate = GetComponent<RotateToMouse>();
+        
 	}
 	
 	
@@ -43,24 +45,16 @@ public class Controller : MonoBehaviour {
             {
                 cachePlayer.SetActive(true);
                 Control.enabled = false;
+                rotate.enabled = false;
                 cachePlayer.transform.position = transform.position;
                 cachePlayer = null;
+                Destroy(AI);
             }
         }
     }
 
     private void OnTriggerStay2D(Collider2D hitWith)
     {
-        /*
-        if(hitWith.gameObject.tag == "AI" && gameObject.tag =="Player")
-        {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                gameObject.SetActive(false);
-
-            }
-        }
-        */
         if (hitWith.gameObject.tag == "Player")
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -70,8 +64,9 @@ public class Controller : MonoBehaviour {
                 {
                     hitWith.gameObject.SetActive(false);
                     Control.enabled = true;
+                    rotate = GetComponent<RotateToMouse>();
+                    rotate.enabled = true;
                     StartCoroutine(GTFO(hitWith.gameObject));
-                    //Player = hitWith.gameObject;
                 }
             }
         }
