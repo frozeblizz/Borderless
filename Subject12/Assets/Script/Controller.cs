@@ -12,12 +12,9 @@ public class Controller : MonoBehaviour {
     private GameObject cachePlayer;
     public GameObject AI;
 
-    public Animator anim;
-
     void Start ()
     {
         rotate = GetComponent<RotateToMouse>();
-        anim = GetComponent<Animator>();
         
 	}
 	
@@ -51,7 +48,7 @@ public class Controller : MonoBehaviour {
                 rotate.enabled = false;
                 cachePlayer.transform.position = transform.position;
                 cachePlayer = null;
-                //Destroy(AI);
+                Destroy(AI);
             }
         }
     }
