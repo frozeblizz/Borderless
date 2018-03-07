@@ -5,16 +5,22 @@ using UnityEngine;
 public class Controller : MonoBehaviour {
 
     public int moveSpeed = 30;
-
+    //public int hp = 10;
     public Controller Control;
-    private RotateToMouse rotate;
+    public shooting shoot;
+    public Sprite Soilder_DEAD;
+    private bool pos = false;
 
     private GameObject cachePlayer;
     public GameObject AI;
 
-    void Start ()
+    public float gethp()
     {
-        rotate = GetComponent<RotateToMouse>();
+        return hp;
+    }
+
+    void Start ()
+    { 
         
 	}
 	
@@ -41,15 +47,20 @@ public class Controller : MonoBehaviour {
         
         if (cachePlayer != null)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.E))
             {
                 cachePlayer.SetActive(true);
                 Control.enabled = false;
-                rotate.enabled = false;
+                shoot.enabled = false;
                 cachePlayer.transform.position = transform.position;
                 cachePlayer = null;
-                Destroy(AI);
+                pos = false;
+                this.GetComponent<SpriteRenderer>().sprite = Soilder_DEAD;
             }
+        }
+        if (hp <= 0)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = Soilder_DEAD;
         }
     }
 
@@ -57,20 +68,28 @@ public class Controller : MonoBehaviour {
     {
         if (hitWith.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 print(Vector3.Distance(transform.position, hitWith.transform.position));
                 if(Vector3.Distance(transform.position,hitWith.transform.position) <= 0.5f)
                 {
                     hitWith.gameObject.SetActive(false);
                     Control.enabled = true;
-                    rotate = GetComponent<RotateToMouse>();
-                    rotate.enabled = true;
+                    shoot.enabled = true;
                     StartCoroutine(GTFO(hitWith.gameObject));
+                    pos = true;
                 }
             }
         }
             
+    }
+
+    private void OnCollisionEnter2D(Collision2D hitWith)
+    {
+        if (hitWith.gameObject.tag == "Bullet" && pos == false)
+        {
+            hp -= 1;
+        }
     }
 
     IEnumerator GTFO(GameObject player)

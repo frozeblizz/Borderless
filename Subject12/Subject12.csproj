@@ -79,7 +79,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\AIbe.cs" />
+    <Compile Include="Assets\Script\BulletBehaviour.cs" />
     <Compile Include="Assets\Script\Controller.cs" />
+    <Compile Include="Assets\Script\DeadCon.cs" />
+    <Compile Include="Assets\Script\RotateToMouse.cs" />
+    <Compile Include="Assets\Script\shooting.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
