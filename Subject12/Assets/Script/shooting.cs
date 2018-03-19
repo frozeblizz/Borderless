@@ -16,8 +16,8 @@ public class shooting : MonoBehaviour {
         {
             nextFire = Time.time + fireRate;
             Rigidbody2D instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as
-           Rigidbody2D;
-            instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
+            Rigidbody2D;
+            instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(speed, 0, 0));
         }
     }
 }

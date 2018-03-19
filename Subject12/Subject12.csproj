@@ -83,6 +83,7 @@
     <Compile Include="Assets\Script\Controller.cs" />
     <Compile Include="Assets\Script\DeadCon.cs" />
     <Compile Include="Assets\Script\RotateToMouse.cs" />
+    <Compile Include="Assets\Script\TimeBehaviour.cs" />
     <Compile Include="Assets\Script\shooting.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
