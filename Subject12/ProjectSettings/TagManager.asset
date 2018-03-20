@@ -6,7 +6,8 @@ TagManager:
   tags:
   - AI
   - Bullet
-  - Electric
+  - Head
+  - Body
   layers:
   - Default
   - TransparentFX

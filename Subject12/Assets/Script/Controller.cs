@@ -7,14 +7,15 @@ public class Controller : MonoBehaviour
 
     public int moveSpeed = 30;
     public int hp = 10;
-    public int direction;
     public Controller Control;
     public shooting shoot;
     public Sprite Soilder_DEAD;
+    private bool pos = false;
     public Animator anim;
+    public int direction;
     public PlayerController playerController;
-
     public GameObject bulletSpawn;
+
     private GameObject cachePlayer;
     
 
@@ -61,17 +62,18 @@ public class Controller : MonoBehaviour
         
         if (playerController.cache != null)
         {
-            Debug.Log("not null");
+            //Debug.Log("not null");
             if(Input.GetKeyDown(KeyCode.E))
             {
                 playerController.cache.SetActive(true);
                 Control.enabled = false;
-                playerController.transform.position = transform.position;
+                //shoot.enabled = false;
+                playerController.cache.transform.position = transform.position;
                 playerController.cache = null;
                 playerController.sprite.enabled = true;
                 playerController.control.enabled = true;
+                pos = false;
                 anim.Play("Dead");
-                bulletSpawn.SetActive(false);
             }
         }
         if (hp <= 0)
@@ -83,15 +85,16 @@ public class Controller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D hitWith)
     {
-        if (hitWith.gameObject.tag == "Bullet")
+        if (hitWith.gameObject.tag == "Bullet" && pos == false)
         {
             hp -= 1;
         }
-        if (hitWith.gameObject.tag == "Electric")
-        {
-            hp -= 10;
-        }
     }
 
-    
+    //IEnumerator GTFO(GameObject player)
+    //{
+    //    yield return null;
+    //    cachePlayer = player;
+    //}
+
 }
