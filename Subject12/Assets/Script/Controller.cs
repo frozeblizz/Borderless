@@ -13,9 +13,10 @@ public class Controller : MonoBehaviour
     private bool pos = false;
     public Animator anim;
     public int direction;
-    PlayerController playerController;
+    public PlayerController playerController;
+    
     private GameObject cachePlayer;
-    public GameObject AI;
+    
 
     public float gethp()
     {
@@ -24,7 +25,7 @@ public class Controller : MonoBehaviour
 
     void Start ()
     {
-        playerController = GetComponent<PlayerController>();
+        
 	}
 	
 	
@@ -58,15 +59,18 @@ public class Controller : MonoBehaviour
             anim.Play("Down");
         }
         
-        if (cachePlayer != null)
+        if (playerController.cache != null)
         {
+            Debug.Log("not null");
             if(Input.GetKeyDown(KeyCode.E))
             {
-                cachePlayer.SetActive(true);
+                playerController.cache.SetActive(true);
                 Control.enabled = false;
-                shoot.enabled = false;
-                cachePlayer.transform.position = transform.position;
-                cachePlayer = null;
+                //shoot.enabled = false;
+                playerController.cache.transform.position = transform.position;
+                playerController.cache = null;
+                playerController.sprite.enabled = true;
+                playerController.control.enabled = true;
                 pos = false;
                 anim.Play("Dead");
             }
