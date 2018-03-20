@@ -37,7 +37,7 @@ public class Controller : MonoBehaviour
             direction = 0;
             rigid.AddForce(new Vector2 (-moveSpeed, 0));
             anim.Play("Left");
-
+            
         }
         if (Input.GetKey(KeyCode.D))
         {
