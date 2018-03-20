@@ -65,6 +65,7 @@ public class Controller : MonoBehaviour
             {
                 playerController.cache.SetActive(true);
                 Control.enabled = false;
+                playerController.transform.position = transform.position;
                 playerController.cache = null;
                 playerController.sprite.enabled = true;
                 playerController.control.enabled = true;
