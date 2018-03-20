@@ -13,7 +13,8 @@ public class Controller : MonoBehaviour
     public Sprite Soilder_DEAD;
     public Animator anim;
     public PlayerController playerController;
-    
+
+    public GameObject bulletSpawn;
     private GameObject cachePlayer;
     
 
@@ -70,7 +71,7 @@ public class Controller : MonoBehaviour
                 playerController.sprite.enabled = true;
                 playerController.control.enabled = true;
                 anim.Play("Dead");
-                playerController.shoot.enabled = false;
+                bulletSpawn.SetActive(false);
             }
         }
         if (hp <= 0)

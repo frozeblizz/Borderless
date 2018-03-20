@@ -9,12 +9,15 @@ public class shooting : MonoBehaviour {
     public float fireRate;
     private float nextFire;
     public GameObject Controller;
+    shooting shoot;
     Controller c;
-    public GameObject bulletSpawn;
+    
 
     void Start()
     {
+        shoot = GetComponent<shooting>();
         c = GetComponentInParent<Controller>();
+        
     }
 
     // Update is called once per frame
@@ -70,5 +73,7 @@ public class shooting : MonoBehaviour {
         {
             transform.localPosition = new Vector3(0, -0.75f, 0);
         }
+
+
     }
 }
