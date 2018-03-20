@@ -67,13 +67,14 @@ public class Controller : MonoBehaviour
             {
                 playerController.cache.SetActive(true);
                 Control.enabled = false;
-                //shoot.enabled = false;
+                
                 playerController.cache.transform.position = transform.position;
                 playerController.cache = null;
                 playerController.sprite.enabled = true;
                 playerController.control.enabled = true;
                 pos = false;
                 anim.Play("Dead");
+                bulletSpawn.SetActive(false);
             }
         }
         if (hp <= 0)

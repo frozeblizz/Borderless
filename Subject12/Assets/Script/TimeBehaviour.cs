@@ -19,5 +19,9 @@ public class TimeBehaviour : MonoBehaviour {
     {
         text.text = string.Format("{0:F0}", time).ToString();
         time -= 1 * Time.deltaTime;
+        if ( time <= 0 )
+        {
+            Time.timeScale = 0;
+        }
 	}
 }
