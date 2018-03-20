@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
+    
     // Use this for initialization
     void Start()
     {
@@ -13,7 +14,7 @@ public class BulletBehaviour : MonoBehaviour
     void Update()
     {
         Destroy(gameObject, 1.5f);
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,12 +24,16 @@ public class BulletBehaviour : MonoBehaviour
                 Debug.Log("HeadShot!!");
                 TimeBehaviour.time += 3;
                 ScoreBehaviour.scorepoint += 150;
+                collision.GetComponentInParent<DeadCon>().Dead();
+                Destroy(gameObject);
             }
             else
             if (collision.gameObject.tag == "Body")
             {
                 Debug.Log("Body shot!!");
                 ScoreBehaviour.scorepoint += 100;
+                collision.GetComponentInParent<DeadCon>().HP();
+                Destroy(gameObject);
             }
         }
     }

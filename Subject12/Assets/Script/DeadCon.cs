@@ -4,30 +4,39 @@ using UnityEngine;
 
 public class DeadCon : MonoBehaviour {
 
-    public int hp = 10;
-    public Sprite Soldier_DEAD;
+   // public int hp = 10;
+    //public Sprite DEAD;
+    Animator anim;
+    int hp = 10;
 
     // Use this for initialization
-    void Start ()
-    {
-		
-	}
+    void Start () {
+        anim = GetComponent<Animator>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-
-
-        if (hp <= 0)
+    }
+   public void Dead()
+    {
+       anim.SetBool("Dead", true);
+        this.GetComponent<BoxCollider2D>().enabled = false;
+        transform.Find("Head").gameObject.SetActive(false);
+        transform.Find("Body").gameObject.SetActive(false);
+    }
+    public void HP()
+    {
+        hp -= 1;
+        if(hp <= 0)
         {
-            this.GetComponent<SpriteRenderer>().sprite = Soldier_DEAD;
+            Dead();
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D hitWith)
+    /*private void OnCollisionEnter2D(Collision2D hitWith)
     {
         if (hitWith.gameObject.tag == "Bullet")
         {
             hp -= 1;
         }
-    }
+    }*/
 }

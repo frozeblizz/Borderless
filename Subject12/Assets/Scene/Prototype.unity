@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 38461501}
   m_Layer: 0
   m_Name: Top Right
-  m_TagString: Untagged
+  m_TagString: Power
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1093,7 +1093,7 @@ GameObject:
   - component: {fileID: 507525257}
   m_Layer: 0
   m_Name: Bott Right
-  m_TagString: Untagged
+  m_TagString: Power
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1553,7 +1553,7 @@ GameObject:
   - component: {fileID: 764950913}
   m_Layer: 0
   m_Name: Top Left
-  m_TagString: Untagged
+  m_TagString: Power
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2860,7 +2860,7 @@ Animator:
   m_GameObject: {fileID: 1341451772}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e5db857a006ceb14d9e18bcb8b60b72d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 306d4c59ca35a6d4c9b1e9f2b3ba0346, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2874,13 +2874,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1341451772}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 691b6ab8f4cd45a43b14adc3b57235a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
-  Soldier_DEAD: {fileID: 0}
 --- !u!212 &1341451775
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3036,7 +3034,7 @@ Animator:
   m_GameObject: {fileID: 1419765658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e5db857a006ceb14d9e18bcb8b60b72d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 306d4c59ca35a6d4c9b1e9f2b3ba0346, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3050,13 +3048,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1419765658}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 691b6ab8f4cd45a43b14adc3b57235a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
-  Soldier_DEAD: {fileID: 0}
 --- !u!212 &1419765661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3468,7 +3464,7 @@ Animator:
   m_GameObject: {fileID: 1683044829}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e5db857a006ceb14d9e18bcb8b60b72d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 306d4c59ca35a6d4c9b1e9f2b3ba0346, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3482,13 +3478,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1683044829}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 691b6ab8f4cd45a43b14adc3b57235a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
-  Soldier_DEAD: {fileID: 0}
 --- !u!212 &1683044832
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3785,7 +3779,7 @@ Animator:
   m_GameObject: {fileID: 1772548120}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e5db857a006ceb14d9e18bcb8b60b72d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 306d4c59ca35a6d4c9b1e9f2b3ba0346, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3799,13 +3793,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1772548120}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 691b6ab8f4cd45a43b14adc3b57235a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
-  Soldier_DEAD: {fileID: 0}
 --- !u!212 &1772548123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3942,7 +3934,7 @@ GameObject:
   - component: {fileID: 1808070698}
   m_Layer: 0
   m_Name: Bott Left
-  m_TagString: Untagged
+  m_TagString: Power
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4360,13 +4352,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2055550657}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 691b6ab8f4cd45a43b14adc3b57235a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
-  Soldier_DEAD: {fileID: 0}
 --- !u!95 &2055550664
 Animator:
   serializedVersion: 3
@@ -4376,7 +4366,7 @@ Animator:
   m_GameObject: {fileID: 2055550657}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e5db857a006ceb14d9e18bcb8b60b72d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 306d4c59ca35a6d4c9b1e9f2b3ba0346, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

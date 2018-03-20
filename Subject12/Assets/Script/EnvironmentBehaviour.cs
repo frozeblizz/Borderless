@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnvironmentBehaviour : MonoBehaviour {
-    int damage = 1;
+    int damage = 10;
     public Controller control;
 
 	// Use this for initialization

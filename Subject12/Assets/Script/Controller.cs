@@ -6,7 +6,7 @@ public class Controller : MonoBehaviour
 {
 
     public int moveSpeed = 30;
-    public int hp = 10;
+    public float hp = 10;
     public Controller Control;
     public shooting shoot;
     public Sprite Soilder_DEAD;
@@ -15,6 +15,7 @@ public class Controller : MonoBehaviour
     public int direction;
     public PlayerController playerController;
     public GameObject bulletSpawn;
+    float delayt = 0.3f;
 
     private GameObject cachePlayer;
     
@@ -26,38 +27,52 @@ public class Controller : MonoBehaviour
 
     void Start ()
     {
-        
-	}
+        anim = GetComponent<Animator>();
+    }
 	
 	
 	void Update ()
     {
         Rigidbody2D rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        
         if (Input.GetKey(KeyCode.A))
         {
             direction = 0;
             rigid.AddForce(new Vector2 (-moveSpeed, 0));
-            anim.Play("Left");
-            
+            anim.SetBool("Left",true);
+            anim.SetBool("Right", false);
+            anim.SetBool("Up", false);
+            anim.SetBool("Down", false);
+
         }
         if (Input.GetKey(KeyCode.D))
         {
             direction = 1;
             rigid.AddForce(new Vector2(moveSpeed,0));
-            anim.Play("Right");
+            anim.SetBool("Right",true);
+            anim.SetBool("Left", false);
+            anim.SetBool("Up", false);
+            anim.SetBool("Down", false);
         }
         if (Input.GetKey(KeyCode.W))
         {
             direction = 2;
             rigid.AddForce(new Vector2(0, moveSpeed));
-            anim.Play("Up");
+            anim.SetBool("Up",true);
+            anim.SetBool("Left", false);
+            anim.SetBool("Right", false);
+            anim.SetBool("Down", false);
+
+
         }
         if (Input.GetKey(KeyCode.S))
         {
             direction = 3;
             rigid.AddForce(new Vector2(0, -moveSpeed));
-            anim.Play("Down");
+            anim.SetBool("Down",true);
+            anim.SetBool("Left", false);
+            anim.SetBool("Right", false);
+            anim.SetBool("Up", false);
         }
         
         if (playerController.cache != null)
@@ -72,24 +87,49 @@ public class Controller : MonoBehaviour
                 playerController.cache = null;
                 playerController.sprite.enabled = true;
                 playerController.control.enabled = true;
-                pos = false;
-                anim.Play("Dead");
+                anim.SetBool("Dead",true);
                 bulletSpawn.SetActive(false);
+            }
+            if(anim.GetBool("Dead")&&pos )
+            {
+                Time.timeScale = 0;
             }
         }
         if (hp <= 0)
         {
-            anim.Play("Dead");
+            anim.SetBool("Dead",true);
         }
     }
 
 
     private void OnCollisionEnter2D(Collision2D hitWith)
     {
-        if (hitWith.gameObject.tag == "Bullet" && pos == false)
+        if (hitWith.gameObject.tag == "Bullet")
         {
             hp -= 1;
         }
+        
+    }
+
+    private void OnCollisionStay2D(Collision2D hitWith)
+    {
+        if (hitWith.gameObject.tag == "Power")
+        {
+            anim.SetBool("Dead", true);
+            
+            delayt -= 1*Time.deltaTime;
+            if(delayt <=0)
+            {
+                pos = true;
+            }
+            
+            /*hp -= 3 * Time.deltaTime;
+            if (hp <= 0)
+            {
+               
+            }*/
+        }
+        
     }
 
     //IEnumerator GTFO(GameObject player)

@@ -290,11 +290,6 @@
     <Compile Include="Assets\Script\EnvironmentBehaviour.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
     <Compile Include="Assets\Script\ScoreBehaviour.cs" />
-<<<<<<< HEAD
-    <Compile Include="Assets\Script\TimeBehaviour.cs" />
-    <Compile Include="Assets\Script\UpgradeTrigger.cs" />
-=======
->>>>>>> 2f64ff6d0c7ca952b3b297e711bf6fff959c0028
     <Compile Include="Assets\Script\shooting.cs" />
     <Compile Include="Assets\Script\TimeBehaviour.cs" />
     <Compile Include="Assets\Script\UpgradeTrigger.cs" />
