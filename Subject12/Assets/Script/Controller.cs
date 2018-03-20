@@ -38,40 +38,26 @@ public class Controller : MonoBehaviour
         {
             direction = 0;
             rigid.AddForce(new Vector2 (-moveSpeed, 0));
-            anim.SetBool("Left",true);
-            anim.SetBool("Right", false);
-            anim.SetBool("Up", false);
-            anim.SetBool("Down", false);
-
+            anim.Play("Left");
+            
         }
         if (Input.GetKey(KeyCode.D))
         {
             direction = 1;
             rigid.AddForce(new Vector2(moveSpeed,0));
-            anim.SetBool("Right",true);
-            anim.SetBool("Left", false);
-            anim.SetBool("Up", false);
-            anim.SetBool("Down", false);
+            anim.Play("Right");
         }
         if (Input.GetKey(KeyCode.W))
         {
             direction = 2;
             rigid.AddForce(new Vector2(0, moveSpeed));
-            anim.SetBool("Up",true);
-            anim.SetBool("Left", false);
-            anim.SetBool("Right", false);
-            anim.SetBool("Down", false);
-
-
+            anim.Play("Up");
         }
         if (Input.GetKey(KeyCode.S))
         {
             direction = 3;
             rigid.AddForce(new Vector2(0, -moveSpeed));
-            anim.SetBool("Down",true);
-            anim.SetBool("Left", false);
-            anim.SetBool("Right", false);
-            anim.SetBool("Up", false);
+            anim.Play("Down");
         }
         
         if (playerController.cache != null)
