@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TimeBehaviour : MonoBehaviour {
 
-    float time;
+    static public float time;
     public Text text;
 	// Use this for initialization
 	void Start ()
