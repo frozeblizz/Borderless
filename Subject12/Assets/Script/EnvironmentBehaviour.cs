@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnvironmentBehaviour : MonoBehaviour {
     int damage = 1;
-    Controller control;
+    public Controller control;
 
 	// Use this for initialization
 	void Start ()

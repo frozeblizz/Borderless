@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigid;
     public SpriteRenderer sprite;
     public PlayerController control;
+    public shooting shoot;
 
     public GameObject cache;
 
@@ -60,10 +61,10 @@ public class PlayerController : MonoBehaviour
                 if (Vector3.Distance(transform.position, hitWith.transform.position) <= 0.5f)
                 {
                     hitWith.gameObject.GetComponent<Controller>().enabled = true;
-                    
+                    hitWith.gameObject.GetComponentInChildren<shooting>().enabled = true;
                     sprite.enabled = false;
                     control.enabled = false;
-
+                    
                     StartCoroutine(GTFO(gameObject));
 
                 }
