@@ -9,6 +9,7 @@ TagManager:
   - Head
   - Body
   - Power
+  - Walkway
   layers:
   - Default
   - TransparentFX
