@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
                     hitWith.gameObject.GetComponent<Controller>().enabled = true;
                     hitWith.gameObject.GetComponentInChildren<shooting>().enabled = true;
                     sprite.enabled = false;
-                    control.enabled = false;
+                    //control.enabled = false;
                     
                     StartCoroutine(GTFO(gameObject));
 
