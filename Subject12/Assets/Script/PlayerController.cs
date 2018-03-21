@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public shooting shoot;
 
     public GameObject cache;
-
+    public GameObject player;
     // Use this for initialization
     void Start()
     {
@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-
             rigid.AddForce(new Vector2(-moveSpeed, 0));
 
         }
@@ -48,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        print(cache);
 
     }
 
@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
     {
         if (hitWith.gameObject.tag == "AI")
         {
+            if (control.enabled == false) return;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 print(Vector3.Distance(transform.position, hitWith.transform.position));
@@ -63,10 +64,12 @@ public class PlayerController : MonoBehaviour
                     hitWith.gameObject.GetComponent<Controller>().enabled = true;
                     hitWith.gameObject.GetComponentInChildren<shooting>().enabled = true;
                     sprite.enabled = false;
-                    //control.enabled = false;
+
+                    player.transform.SetParent(hitWith.transform);
+                    control.enabled = false;
+                    player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     
                     StartCoroutine(GTFO(gameObject));
-
                 }
             }
         }

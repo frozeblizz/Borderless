@@ -18,20 +18,21 @@ public class Controller : MonoBehaviour
     float delayt = 0.3f;
 
     private GameObject cachePlayer;
-    
+    public GameObject player;
 
-    public float gethp()
-    {
-        return hp;
-    }
+
 
     void Start ()
     {
         anim = GetComponent<Animator>();
+       
     }
-	
-	
-	void Update ()
+
+    private void Awake()
+    {
+         player = GameObject.FindGameObjectWithTag("Player");
+    }
+    void Update ()
     {
         Rigidbody2D rigid = GetComponent<Rigidbody2D>();
         
@@ -80,13 +81,16 @@ public class Controller : MonoBehaviour
             //Debug.Log("not null");
             if(Input.GetKeyDown(KeyCode.E))
             {
+                print("die");
                 playerController.cache.SetActive(true);
                 Control.enabled = false;
-                
+                player.transform.SetParent(null);
+                player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 playerController.cache.transform.position = transform.position;
                 playerController.cache = null;
                 playerController.sprite.enabled = true;
-                playerController.control.enabled = true;
+                StartCoroutine(getOut());
+                
                 anim.SetBool("Dead",true);
                 bulletSpawn.SetActive(false);
             }
@@ -132,10 +136,10 @@ public class Controller : MonoBehaviour
         
     }
 
-    //IEnumerator GTFO(GameObject player)
-    //{
-    //    yield return null;
-    //    cachePlayer = player;
-    //}
+    IEnumerator getOut()
+    {
+        yield return null;
+        playerController.control.enabled = true;
+    }
 
 }
