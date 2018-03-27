@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    
+    public GameObject[] blood;
+
     // Use this for initialization
     void Start()
     {
@@ -22,15 +23,18 @@ public class BulletBehaviour : MonoBehaviour
             if (collision.gameObject.tag == "Head")
             {
                 Debug.Log("HeadShot!!");
+                Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
                 TimeBehaviour.time += 3;
                 ScoreBehaviour.scorepoint += 150;
                 collision.GetComponentInParent<DeadCon>().Dead();
                 Destroy(gameObject);
+                
             }
             else
             if (collision.gameObject.tag == "Body")
             {
                 Debug.Log("Body shot!!");
+                Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
                 ScoreBehaviour.scorepoint += 100;
                 collision.GetComponentInParent<DeadCon>().HP();
                 Destroy(gameObject);
