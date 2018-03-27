@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4377241049403180}
   - component: {fileID: 212259524231544568}
   - component: {fileID: 65550264482933612}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Blood32
   m_TagString: Untagged
   m_Icon: {fileID: 0}

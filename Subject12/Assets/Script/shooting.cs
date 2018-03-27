@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class shooting : MonoBehaviour {
 
+    public GameObject[] blood;
 	public Rigidbody2D projectile;
     public float speed = 20;
     public float fireRate;
@@ -30,6 +31,12 @@ public class shooting : MonoBehaviour {
                 instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as
                 Rigidbody2D;
             }
+            if(this.gameObject.layer == 8)
+            {
+                this.GetComponentInParent<Animator>().SetBool("attack", true);
+                StartCoroutine(delay());
+            }
+            
 
             if (c.direction == 1)
             {
@@ -73,6 +80,27 @@ public class shooting : MonoBehaviour {
         if (c.direction == 3)
         {
             transform.localPosition = new Vector3(0, -1.5f, 0);
+        }
+    }
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(5 * Time.deltaTime);
+        this.GetComponentInParent<Animator>().SetBool("attack", false);
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.tag == "Body" && this.GetComponentInParent<Animator>().GetBool("attack"))
+        {
+            Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
+            ScoreBehaviour.scorepoint += 100;
+            collision.GetComponentInParent<DeadCon>().HP();
+        }
+        if (collision.tag == "Head" && this.GetComponentInParent<Animator>().GetBool("attack"))
+        {
+            Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
+            ScoreBehaviour.scorepoint += 150;
+            collision.GetComponentInParent<DeadCon>().Dead();
         }
     }
 }

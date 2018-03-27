@@ -20,6 +20,8 @@ TagManager:
   - UI
   - 
   - 
+  - DR
+  - SD
   - 
   - 
   - 
@@ -41,10 +43,17 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - blood
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: SD
+    uniqueID: 2810330121
+    locked: 0
+  - name: DR
+    uniqueID: 1121012163
+    locked: 0
+  - name: blood
+    uniqueID: 1502176055
     locked: 0
