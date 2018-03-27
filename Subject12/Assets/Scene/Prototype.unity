@@ -1624,8 +1624,8 @@ Prefab:
       objectReference: {fileID: 454374635}
     - target: {fileID: 114279705739868546, guid: 9da314624d579f749b1689c744e61882,
         type: 2}
-      propertyPath: shootingRange
-      value: 5
+      propertyPath: speed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9da314624d579f749b1689c744e61882, type: 2}

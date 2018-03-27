@@ -308,16 +308,19 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225265047328620}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0e6c35c63505264ea6138b88ddfaee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.5
   stop: 1
   near: 2
   left: {fileID: 0}
   right: {fileID: 0}
+  bulletSpawn: {fileID: 0}
+  projectile: {fileID: 0}
+  shootingRange: 5
 --- !u!114 &114675472916382520
 MonoBehaviour:
   m_ObjectHideFlags: 1

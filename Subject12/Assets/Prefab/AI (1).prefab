@@ -267,7 +267,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 1253832538460044}
   projectile: {fileID: 50985710684723780, guid: 1971c836fd6b9c04e92fb7973ff4832d,
     type: 2}
-  shootingRange: 0
+  shootingRange: 5
 --- !u!114 &114725044899786486
 MonoBehaviour:
   m_ObjectHideFlags: 1
