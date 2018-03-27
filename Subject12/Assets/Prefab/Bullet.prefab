@@ -140,13 +140,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood:
-  - {fileID: 21300000, guid: caa4723b9078eae4eb24f01809731ee6, type: 3}
-  - {fileID: 21300000, guid: 345539215e476b74ab9a3e8c83e37103, type: 3}
-  - {fileID: 21300000, guid: a6df5bb9c15434c4c8142414de79156a, type: 3}
-  - {fileID: 21300000, guid: 2f08f226fa4f49745990421ecc56007f, type: 3}
-  - {fileID: 21300000, guid: 5d692c55852d70b4ea9b435aee55dd96, type: 3}
-  - {fileID: 21300000, guid: 20086887b8293dc41a48e471388c4012, type: 3}
-  - {fileID: 21300000, guid: d8b65a07bd950d547b13bade55e96a49, type: 3}
-  - {fileID: 21300000, guid: d71ab609bf4c71d489df68bffc11660e, type: 3}
-  - {fileID: 21300000, guid: 5efacdfa2d48a9749bbf615d3b0a978b, type: 3}
-  - {fileID: 21300000, guid: e7fce3fc3ec308f41aaf31d70fc6bfee, type: 3}
+  - {fileID: 1436778462787666, guid: bc7589c00d6861e4291543a454c93b3f, type: 2}
+  - {fileID: 1980681040803380, guid: dbd37a75725c8c246b131007124a96fc, type: 2}
+  - {fileID: 1408986675772018, guid: e65037c9db82da940993c774a4114728, type: 2}
+  - {fileID: 1132863116580742, guid: d43c9ab8876bdae4899b1da0268d2202, type: 2}
+  - {fileID: 1217755715153444, guid: fc50f09e59174fe43b3f9af627ec4741, type: 2}
+  - {fileID: 1863877477349476, guid: 5c30ae60af613094e8fb53d10b135208, type: 2}
+  - {fileID: 1561169806190746, guid: d2118115d1cf4ff41bef99f4055c7806, type: 2}
+  - {fileID: 1951082656318054, guid: bec0f260e934cba41b562be8c97016f3, type: 2}
+  - {fileID: 1731766450528692, guid: 94ae9264b61ff734dbaf6fa0c00994a2, type: 2}
+  - {fileID: 1023629286261254, guid: 171e5b9f69322a647be648d9556348c7, type: 2}

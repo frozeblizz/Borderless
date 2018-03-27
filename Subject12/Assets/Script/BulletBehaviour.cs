@@ -23,7 +23,7 @@ public class BulletBehaviour : MonoBehaviour
             if (collision.gameObject.tag == "Head")
             {
                 Debug.Log("HeadShot!!");
-                Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
+                Instantiate(blood[Random.Range(0, 10)], this.transform.position, this.transform.rotation);
                 TimeBehaviour.time += 3;
                 ScoreBehaviour.scorepoint += 150;
                 collision.GetComponentInParent<DeadCon>().Dead();

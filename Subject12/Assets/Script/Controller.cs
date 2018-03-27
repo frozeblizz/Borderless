@@ -20,29 +20,33 @@ public class Controller : MonoBehaviour
 
     private GameObject cachePlayer;
     public GameObject player;
+    public SpriteRenderer sprite;
+    Sprite spritetemp;
+    bool onetime = true;
 
 
-
-    void Start ()
+    void Start()
     {
         anim = GetComponent<Animator>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-
+        sprite = GetComponent<SpriteRenderer>();
+        spritetemp = sprite.sprite;
     }
 
     private void Awake()
     {
-         player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
-    void Update ()
+    void Update()
     {
+
         Rigidbody2D rigid = GetComponent<Rigidbody2D>();
-        
+
         if (Input.GetKey(KeyCode.A))
         {
             direction = 0;
-            rigid.AddForce(new Vector2 (-moveSpeed, 0));
-            anim.SetBool("Left",true);
+            rigid.AddForce(new Vector2(-moveSpeed, 0));
+            anim.SetBool("Left", true);
             anim.SetBool("Right", false);
             anim.SetBool("Up", false);
             anim.SetBool("Down", false);
@@ -51,8 +55,8 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             direction = 1;
-            rigid.AddForce(new Vector2(moveSpeed,0));
-            anim.SetBool("Right",true);
+            rigid.AddForce(new Vector2(moveSpeed, 0));
+            anim.SetBool("Right", true);
             anim.SetBool("Left", false);
             anim.SetBool("Up", false);
             anim.SetBool("Down", false);
@@ -61,7 +65,7 @@ public class Controller : MonoBehaviour
         {
             direction = 2;
             rigid.AddForce(new Vector2(0, moveSpeed));
-            anim.SetBool("Up",true);
+            anim.SetBool("Up", true);
             anim.SetBool("Left", false);
             anim.SetBool("Right", false);
             anim.SetBool("Down", false);
@@ -72,16 +76,16 @@ public class Controller : MonoBehaviour
         {
             direction = 3;
             rigid.AddForce(new Vector2(0, -moveSpeed));
-            anim.SetBool("Down",true);
+            anim.SetBool("Down", true);
             anim.SetBool("Left", false);
             anim.SetBool("Right", false);
             anim.SetBool("Up", false);
         }
-        
+
         if (playerController.cache != null)
         {
             //Debug.Log("not null");
-            if(Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 this.gameObject.tag = "AI";
                 print("die");
@@ -97,9 +101,9 @@ public class Controller : MonoBehaviour
                 bulletSpawn.SetActive(false);
                 PlayerController.wanderTime = 5;
                 PlayerController.isPossessed = false;
-                
+
             }
-            if(anim.GetBool("Dead")&&pos)
+            if (anim.GetBool("Dead") && pos)
             {
                 Time.timeScale = 0;
             }
@@ -113,13 +117,18 @@ public class Controller : MonoBehaviour
                 pos = true;
             }
         }
-        if(PlayerController.isPossessed == true)
+        if (PlayerController.isPossessed == true)
         {
             possessTime -= 1 * Time.deltaTime;
+            if (onetime)
+            {
+                StartCoroutine(Kapip());
+                onetime = false;
+            }
         }
-        if(possessTime <= 0)
+        if (possessTime <= 0)
         {
-            
+            this.GetComponent<DeadCon>().Dead();
             Time.timeScale = 0;
         }
     }
@@ -131,7 +140,7 @@ public class Controller : MonoBehaviour
         {
             hp -= 1;
         }
-        
+
     }
 
 
@@ -154,7 +163,7 @@ public class Controller : MonoBehaviour
                
             }*/
         }
-        
+
     }
 
     IEnumerator getOut()
@@ -162,5 +171,17 @@ public class Controller : MonoBehaviour
         yield return null;
         playerController.control.enabled = true;
     }
+    IEnumerator Kapip()
+    {
+        while (true)
+        {
+            //yield return new WaitForSeconds(time);
+            sprite.sprite = spritetemp;
+            yield return new WaitForSeconds(possessTime * Time.deltaTime);
+            //  Debug.Log("fuck");
+            sprite.sprite = null;
+            yield return new WaitForSeconds(possessTime * Time.deltaTime);
+        }
 
+    }
 }

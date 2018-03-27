@@ -14,12 +14,15 @@ public class PlayerController : MonoBehaviour
 
     public GameObject cache;
     public GameObject player;
+    public Sprite spritetemp;
+    bool onetime = true;
     // Use this for initialization
     void Start()
     {
         control = GetComponent<PlayerController>();
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+       // spritetemp = sprite.sprite;
     }
 
     // Update is called once per frame
@@ -48,14 +51,23 @@ public class PlayerController : MonoBehaviour
             rigid.AddForce(new Vector2(0, -moveSpeed));
 
         }
+        
 
        // print(cache);
-       if(isPossessed == false)
+        if (isPossessed == false)
        {
+            //sprite.sprite = spritetemp;
             wanderTime -= 1 * Time.deltaTime;
-       }
+            if(onetime)
+            {
+                StartCoroutine(Kapip());
+                onetime = false;
+            }
+            
+        }
        if(wanderTime <= 0)
        {
+            Destroy(gameObject);
            Time.timeScale = 0;
        }
     }
@@ -96,5 +108,21 @@ public class PlayerController : MonoBehaviour
     {
         yield return null;
         cache = player;
+    }
+
+    IEnumerator Kapip()
+    {
+        while(true)
+        {
+            //yield return new WaitForSeconds(time);
+            sprite.sprite = spritetemp;
+            yield return new WaitForSeconds(wanderTime*Time.deltaTime*7);
+          //  Debug.Log("fuck");
+            sprite.sprite = null;
+            yield return new WaitForSeconds(wanderTime * Time.deltaTime*7);
+
+        }
+
+        
     }
 }
