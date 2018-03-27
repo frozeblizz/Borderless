@@ -264,6 +264,10 @@ MonoBehaviour:
   near: 0
   left: {fileID: 21300000, guid: e1d179cac6ae69b4cadd85b303f365e2, type: 3}
   right: {fileID: 21300000, guid: a385d5bce665a75419e686c4f2f6ded4, type: 3}
+  bulletSpawn: {fileID: 1253832538460044}
+  projectile: {fileID: 50985710684723780, guid: 1971c836fd6b9c04e92fb7973ff4832d,
+    type: 2}
+  shootingRange: 0
 --- !u!114 &114725044899786486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,6 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057d80e47fb58e04581d2ef5f0b5782b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood: []
   projectile: {fileID: 50985710684723780, guid: 1971c836fd6b9c04e92fb7973ff4832d,
     type: 2}
   speed: 20
