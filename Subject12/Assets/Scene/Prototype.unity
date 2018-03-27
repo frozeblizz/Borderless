@@ -494,6 +494,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2.166643
       objectReference: {fileID: 0}
+    - target: {fileID: 114333439964896292, guid: e370becdf88f1f241ba0bdc724f7d1f4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e370becdf88f1f241ba0bdc724f7d1f4, type: 2}
   m_IsPrefabParent: 0
@@ -1510,6 +1515,11 @@ Prefab:
     - target: {fileID: 4339208009666048, guid: e370becdf88f1f241ba0bdc724f7d1f4, type: 2}
       propertyPath: m_LocalScale.z
       value: 2.1666427
+      objectReference: {fileID: 0}
+    - target: {fileID: 114333439964896292, guid: e370becdf88f1f241ba0bdc724f7d1f4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e370becdf88f1f241ba0bdc724f7d1f4, type: 2}
@@ -2715,14 +2725,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   hp: 10
+  direction: 0
+  playerController: {fileID: 454374642}
+  anim: {fileID: 0}
   Control: {fileID: 1341451776}
   shoot: {fileID: 0}
   Soilder_DEAD: {fileID: 0}
-  anim: {fileID: 0}
-  direction: 0
-  playerController: {fileID: 454374642}
-  bulletSpawn: {fileID: 2023910221}
   player: {fileID: 454374635}
+  bulletSpawn: {fileID: 2023910221}
 --- !u!61 &1341451777
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2890,14 +2900,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   hp: 10
+  direction: 0
+  playerController: {fileID: 454374642}
+  anim: {fileID: 0}
   Control: {fileID: 1419765662}
   shoot: {fileID: 0}
   Soilder_DEAD: {fileID: 0}
-  anim: {fileID: 0}
-  direction: 0
-  playerController: {fileID: 454374642}
-  bulletSpawn: {fileID: 718175273}
   player: {fileID: 454374635}
+  bulletSpawn: {fileID: 718175273}
 --- !u!61 &1419765663
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3359,14 +3369,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   hp: 10
+  direction: 0
+  playerController: {fileID: 454374642}
+  anim: {fileID: 0}
   Control: {fileID: 1772548124}
   shoot: {fileID: 0}
   Soilder_DEAD: {fileID: 0}
-  anim: {fileID: 0}
-  direction: 0
-  playerController: {fileID: 454374642}
-  bulletSpawn: {fileID: 810612273}
   player: {fileID: 454374635}
+  bulletSpawn: {fileID: 810612273}
 --- !u!61 &1772548125
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3675,14 +3685,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   hp: 10
+  direction: 0
+  playerController: {fileID: 454374642}
+  anim: {fileID: 0}
   Control: {fileID: 2055550659}
   shoot: {fileID: 0}
   Soilder_DEAD: {fileID: 0}
-  anim: {fileID: 0}
-  direction: 0
-  playerController: {fileID: 454374642}
-  bulletSpawn: {fileID: 1693847260}
   player: {fileID: 454374635}
+  bulletSpawn: {fileID: 1693847260}
 --- !u!61 &2055550660
 BoxCollider2D:
   m_ObjectHideFlags: 0

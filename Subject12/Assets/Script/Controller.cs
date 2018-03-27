@@ -7,19 +7,19 @@ public class Controller : MonoBehaviour
 
     public int moveSpeed = 30;
     public float hp = 10;
+    public int direction;
+    private bool pos = false;
+    private float delayt = 0.3f;
+    public static float possessTime = 15;
+    public PlayerController playerController;
+    public Animator anim;
     public Controller Control;
     public shooting shoot;
     public Sprite Soilder_DEAD;
-    private bool pos = false;
-    public Animator anim;
-    public int direction;
-    public PlayerController playerController;
-    public GameObject bulletSpawn;
-    float delayt = 0.3f;
 
     private GameObject cachePlayer;
     public GameObject player;
-
+    public GameObject bulletSpawn;
 
 
     void Start ()
@@ -90,9 +90,10 @@ public class Controller : MonoBehaviour
                 playerController.cache = null;
                 playerController.sprite.enabled = true;
                 StartCoroutine(getOut());
-                
                 anim.SetBool("Dead",true);
                 bulletSpawn.SetActive(false);
+                PlayerController.isPossessed = false;
+                PlayerController.wanderTime = 5;
             }
             if(anim.GetBool("Dead")&&pos )
             {
@@ -102,6 +103,15 @@ public class Controller : MonoBehaviour
         if (hp <= 0)
         {
             anim.SetBool("Dead",true);
+        }
+        if(PlayerController.isPossessed == true)
+        {
+            possessTime -= 1 * Time.deltaTime;
+        }
+        if(possessTime <= 0)
+        {
+            anim.SetBool("Dead", true);
+            Time.timeScale = 0;
         }
     }
 

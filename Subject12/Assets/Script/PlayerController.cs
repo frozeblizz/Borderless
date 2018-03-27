@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public int moveSpeed = 30;
-    private bool isPossessed = false;
-    private float possessTime = 5;
+    public static bool isPossessed = false; //check if possessed
+    public static float wanderTime = 5; //time before player die
 
     private Rigidbody2D rigid;
     public SpriteRenderer sprite;
     public PlayerController control;
     public shooting shoot;
-
+    private DeadCon deadCon;
     public GameObject cache;
     public GameObject player;
     // Use this for initialization
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
         control = GetComponent<PlayerController>();
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        deadCon = GetComponent<DeadCon>();
     }
 
     // Update is called once per frame
@@ -53,7 +54,13 @@ public class PlayerController : MonoBehaviour
         print(cache);
         if(isPossessed == false)
         {
-            possessTime -= 1 * Time.deltaTime;
+            wanderTime -= 1 * Time.deltaTime;
+        }
+        //if don't possess within time the player will die
+        if(wanderTime <= 0)
+        {
+            
+            Time.timeScale = 0;
         }
     }
     
@@ -75,6 +82,7 @@ public class PlayerController : MonoBehaviour
                     control.enabled = false;
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     StartCoroutine(GTFO(gameObject));
+                    Controller.possessTime = 20;
                 }
             }
         }
