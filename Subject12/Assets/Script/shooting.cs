@@ -41,7 +41,7 @@ public class shooting : MonoBehaviour {
             if (c.direction == 1)
             {
                 Debug.Log("Right");
-                    instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(speed, 0, 0));
+                instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(speed, 0, 0));
                 //transform.localPosition = new Vector3(0.75f, 0, 0);
             }
             if (c.direction == 0)
@@ -53,13 +53,13 @@ public class shooting : MonoBehaviour {
             if (c.direction == 2)
             {
                 Debug.Log("Up");
-                    instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, speed, 0));
+                instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, speed, 0));
                 //transform.localPosition = new Vector3(0, 0.75f, 0);
             }
             if (c.direction == 3)
             {
                 Debug.Log("Down");
-                    instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, -speed, 0));
+                instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, -speed, 0));
                 //transform.localPosition = new Vector3(0, -0.75f, 0);
             }
 
@@ -103,4 +103,5 @@ public class shooting : MonoBehaviour {
             collision.GetComponentInParent<DeadCon>().Dead();
         }
     }
+
 }

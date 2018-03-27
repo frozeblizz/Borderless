@@ -691,6 +691,10 @@ MonoBehaviour:
   near: 2
   left: {fileID: 0}
   right: {fileID: 0}
+  bulletSpawn: {fileID: 970120789}
+  projectile: {fileID: 50985710684723780, guid: 1971c836fd6b9c04e92fb7973ff4832d,
+    type: 2}
+  shootingRange: 5
 --- !u!95 &257840885
 Animator:
   serializedVersion: 3
@@ -1561,6 +1565,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: a385d5bce665a75419e686c4f2f6ded4,
         type: 3}
+    - target: {fileID: 114333439964896292, guid: e370becdf88f1f241ba0bdc724f7d1f4,
+        type: 2}
+      propertyPath: shootingRange
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e370becdf88f1f241ba0bdc724f7d1f4, type: 2}
   m_IsPrefabParent: 0
@@ -1613,6 +1622,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 454374635}
+    - target: {fileID: 114279705739868546, guid: 9da314624d579f749b1689c744e61882,
+        type: 2}
+      propertyPath: shootingRange
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9da314624d579f749b1689c744e61882, type: 2}
   m_IsPrefabParent: 0
@@ -1682,6 +1696,10 @@ MonoBehaviour:
   near: 2
   left: {fileID: 0}
   right: {fileID: 0}
+  bulletSpawn: {fileID: 7457869}
+  projectile: {fileID: 50985710684723780, guid: 1971c836fd6b9c04e92fb7973ff4832d,
+    type: 2}
+  shootingRange: 5
 --- !u!95 &858152681
 Animator:
   serializedVersion: 3
@@ -3185,6 +3203,10 @@ MonoBehaviour:
   near: 2
   left: {fileID: 0}
   right: {fileID: 0}
+  bulletSpawn: {fileID: 472204286}
+  projectile: {fileID: 50985710684723780, guid: 1971c836fd6b9c04e92fb7973ff4832d,
+    type: 2}
+  shootingRange: 5
 --- !u!95 &1631352086
 Animator:
   serializedVersion: 3
@@ -3624,6 +3646,10 @@ MonoBehaviour:
   near: 2
   left: {fileID: 0}
   right: {fileID: 0}
+  bulletSpawn: {fileID: 2144360067}
+  projectile: {fileID: 50985710684723780, guid: 1971c836fd6b9c04e92fb7973ff4832d,
+    type: 2}
+  shootingRange: 5
 --- !u!95 &1909325653
 Animator:
   serializedVersion: 3
@@ -4087,6 +4113,9 @@ MonoBehaviour:
   near: 2
   left: {fileID: 0}
   right: {fileID: 0}
+  bulletSpawn: {fileID: 0}
+  projectile: {fileID: 0}
+  shootingRange: 5
 --- !u!1 &2062785491
 GameObject:
   m_ObjectHideFlags: 0
