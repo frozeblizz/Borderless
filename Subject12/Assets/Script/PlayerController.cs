@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     
                     StartCoroutine(GTFO(gameObject));
-                    Controller.possessTime = 20;
+                    Controller.possessTime = 15;
                     hitWith.gameObject.GetComponent<EnemyPatrol>().enabled = false;
                 }
                 hitWith.gameObject.tag = "Player";
