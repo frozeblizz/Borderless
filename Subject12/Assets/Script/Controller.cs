@@ -5,7 +5,7 @@ using System;
 
 public class Controller : MonoBehaviour
 {
-
+    public static float possessTime = 15;
     public int moveSpeed = 30;
     public float hp = 10;
     public Controller Control;
@@ -95,6 +95,8 @@ public class Controller : MonoBehaviour
                 StartCoroutine(getOut());
                 this.GetComponent<DeadCon>().Dead();
                 bulletSpawn.SetActive(false);
+                PlayerController.wanderTime = 5;
+                PlayerController.isPossessed = false;
                 
             }
             if(anim.GetBool("Dead")&&pos)
@@ -110,6 +112,15 @@ public class Controller : MonoBehaviour
             {
                 pos = true;
             }
+        }
+        if(PlayerController.isPossessed == true)
+        {
+            possessTime -= 1 * Time.deltaTime;
+        }
+        if(possessTime <= 0)
+        {
+            
+            Time.timeScale = 0;
         }
     }
 

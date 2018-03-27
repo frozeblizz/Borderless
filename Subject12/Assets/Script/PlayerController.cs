@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public int moveSpeed = 30;
-    Rigidbody2D rigid;
+    public static float wanderTime = 5;
+    public static bool isPossessed = false;
+    private Rigidbody2D rigid;
     public SpriteRenderer sprite;
     public PlayerController control;
     public shooting shoot;
@@ -48,7 +50,14 @@ public class PlayerController : MonoBehaviour
         }
 
        // print(cache);
-
+       if(isPossessed == false)
+       {
+            wanderTime -= 1 * Time.deltaTime;
+       }
+       if(wanderTime <= 0)
+       {
+           Time.timeScale = 0;
+       }
     }
 
     private void OnTriggerStay2D(Collider2D hitWith)
@@ -61,7 +70,7 @@ public class PlayerController : MonoBehaviour
                 print(Vector3.Distance(transform.position, hitWith.transform.position));
                 if (Vector3.Distance(transform.position, hitWith.transform.position) <= 0.5f)
                 {
-                    
+                    isPossessed = true;
                     hitWith.gameObject.GetComponent<Controller>().enabled = true;
                    
                     hitWith.gameObject.GetComponentInChildren<shooting>().enabled = true;
@@ -72,6 +81,7 @@ public class PlayerController : MonoBehaviour
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     
                     StartCoroutine(GTFO(gameObject));
+                    Controller.possessTime = 20;
                     hitWith.gameObject.GetComponent<EnemyPatrol>().enabled = false;
                 }
                 hitWith.gameObject.tag = "Player";
