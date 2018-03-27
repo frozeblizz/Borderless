@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        print(cache);
+       // print(cache);
 
     }
 
@@ -61,7 +61,9 @@ public class PlayerController : MonoBehaviour
                 print(Vector3.Distance(transform.position, hitWith.transform.position));
                 if (Vector3.Distance(transform.position, hitWith.transform.position) <= 0.5f)
                 {
+                    
                     hitWith.gameObject.GetComponent<Controller>().enabled = true;
+                   
                     hitWith.gameObject.GetComponentInChildren<shooting>().enabled = true;
                     sprite.enabled = false;
 
@@ -70,8 +72,12 @@ public class PlayerController : MonoBehaviour
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     
                     StartCoroutine(GTFO(gameObject));
+                    hitWith.gameObject.GetComponent<EnemyPatrol>().enabled = false;
                 }
+                hitWith.gameObject.tag = "Player";
+
             }
+            
         }
 
     }

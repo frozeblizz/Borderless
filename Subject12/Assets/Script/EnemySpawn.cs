@@ -20,10 +20,12 @@ public class EnemySpawn : MonoBehaviour {
     {
         while (true)
         {
-            Rigidbody2D instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as
-            Rigidbody2D;
-            yield return new WaitForSeconds(5);
-            instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, 0));
+            Debug.Log("Kuay hill");
+            /*Rigidbody2D instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as
+            Rigidbody2D;*/
+            Instantiate(enemySpawn, transform.position, transform.rotation);
+            yield return new WaitForSeconds(5f);
+            //instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, 0));
         }
         
     }

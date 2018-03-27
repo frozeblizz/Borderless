@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Controller : MonoBehaviour
 {
@@ -25,7 +26,8 @@ public class Controller : MonoBehaviour
     void Start ()
     {
         anim = GetComponent<Animator>();
-       
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
     }
 
     private void Awake()
@@ -81,6 +83,7 @@ public class Controller : MonoBehaviour
             //Debug.Log("not null");
             if(Input.GetKeyDown(KeyCode.E))
             {
+                this.gameObject.tag = "AI";
                 print("die");
                 playerController.cache.SetActive(true);
                 Control.enabled = false;
@@ -90,18 +93,23 @@ public class Controller : MonoBehaviour
                 playerController.cache = null;
                 playerController.sprite.enabled = true;
                 StartCoroutine(getOut());
-                
-                anim.SetBool("Dead",true);
+                this.GetComponent<DeadCon>().Dead();
                 bulletSpawn.SetActive(false);
+                
             }
-            if(anim.GetBool("Dead")&&pos )
+            if(anim.GetBool("Dead")&&pos)
             {
                 Time.timeScale = 0;
             }
         }
         if (hp <= 0)
         {
-            anim.SetBool("Dead",true);
+            this.GetComponent<DeadCon>().Dead();
+            delayt -= 1 * Time.deltaTime;
+            if (delayt <= 0)
+            {
+                pos = true;
+            }
         }
     }
 
@@ -115,16 +123,18 @@ public class Controller : MonoBehaviour
         
     }
 
+
     private void OnCollisionStay2D(Collision2D hitWith)
     {
         if (hitWith.gameObject.tag == "Power")
         {
-            anim.SetBool("Dead", true);
-            
-            delayt -= 1*Time.deltaTime;
+            this.GetComponent<DeadCon>().Dead();
+
+            /*delayt -= 1*Time.deltaTime;
             if(delayt <=0)
             {
                 pos = true;
+                Time.timeScale = 0;
             }
             
             /*hp -= 3 * Time.deltaTime;

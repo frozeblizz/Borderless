@@ -34,7 +34,14 @@ public class BulletBehaviour : MonoBehaviour
                 ScoreBehaviour.scorepoint += 100;
                 collision.GetComponentInParent<DeadCon>().HP();
                 Destroy(gameObject);
-            }
+            }     
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "wall")
+        {
+            Destroy(gameObject);
         }
     }
 
