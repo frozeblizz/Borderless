@@ -85,7 +85,6 @@
     <Compile Include="Assets\Script\DeadCon.cs" />
     <Compile Include="Assets\Script\EnemyPatrol.cs" />
     <Compile Include="Assets\Script\EnemySpawn.cs" />
-    <Compile Include="Assets\Script\EnvironmentBehaviour.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
     <Compile Include="Assets\Script\ScoreBehaviour.cs" />
     <Compile Include="Assets\Script\TimeBehaviour.cs" />

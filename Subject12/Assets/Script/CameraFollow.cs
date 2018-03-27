@@ -16,21 +16,21 @@ public class CameraFollow : MonoBehaviour {
 
         cam.transform.position = new Vector3(targetPosition.x, targetPosition.y, cameraPosition.z);
 
-        if (cam.transform.position.x <= -5.64f)
+        if (cam.transform.position.x <= -11.96f)
         {
-            cam.transform.position = new Vector3(-5.64f, cam.transform.position.y, cam.transform.position.z);
+            cam.transform.position = new Vector3(-11.96f, cam.transform.position.y, cam.transform.position.z);
         }
-        if (cam.transform.position.x >= 4.14f)
+        if (cam.transform.position.x >= 10.45f)
         {
-            cam.transform.position = new Vector3(4.14f, cam.transform.position.y, cam.transform.position.z);
+            cam.transform.position = new Vector3(10.45f, cam.transform.position.y, cam.transform.position.z);
         }
-        if (cam.transform.position.y <= 0.48f)
+        if (cam.transform.position.y <= -7.11f)
         {
-            cam.transform.position = new Vector3(cam.transform.position.x, 0.48f, cam.transform.position.z);
+            cam.transform.position = new Vector3(cam.transform.position.x, -7.11f, cam.transform.position.z);
         }
-        if (cam.transform.position.y >= 3.48f)
+        if (cam.transform.position.y >= 11f)
         {
-            cam.transform.position = new Vector3(cam.transform.position.x, 3.48f, cam.transform.position.z);
+            cam.transform.position = new Vector3(cam.transform.position.x, 11f, cam.transform.position.z);
         }
     }
 }
