@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
     public int moveSpeed = 30;
     public static float wanderTime = 5;
     public static bool isPossessed = false;
+    public Animator anim;
+    public ParticleSystem ps;
+    
     private Rigidbody2D rigid;
+    [HideInInspector]
     public SpriteRenderer sprite;
+    [HideInInspector]
     public PlayerController control;
+    [HideInInspector]
     public shooting shoot;
-
+    [HideInInspector]
     public GameObject cache;
-    public GameObject player;
+    [HideInInspector]
     public Sprite spritetemp;
+
+    public GameObject player;
+    
     bool onetime = true;
     // Use this for initialization
     void Start()
@@ -22,6 +32,8 @@ public class PlayerController : MonoBehaviour
         control = GetComponent<PlayerController>();
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        ps = GetComponent<ParticleSystem>();
        // spritetemp = sprite.sprite;
     }
 
@@ -39,7 +51,7 @@ public class PlayerController : MonoBehaviour
             rigid.AddForce(new Vector2(moveSpeed, 0));
 
         }
-        if (Input.GetKey(KeyCode.W))
+        /*if (Input.GetKey(KeyCode.W))
         {
 
             rigid.AddForce(new Vector2(0, moveSpeed));
@@ -50,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
             rigid.AddForce(new Vector2(0, -moveSpeed));
 
-        }
+        }*/
         
 
        // print(cache);
@@ -95,6 +107,9 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(GTFO(gameObject));
                     Controller.possessTime = 15;
                     hitWith.gameObject.GetComponent<EnemyPatrol>().enabled = false;
+                    hitWith.gameObject.GetComponent<Animator>().Play("Posses");
+                    anim.enabled = false;
+                    ps.enableEmission = false;
                 }
                 hitWith.gameObject.tag = "Player";
 
@@ -115,11 +130,11 @@ public class PlayerController : MonoBehaviour
         while(true)
         {
             //yield return new WaitForSeconds(time);
-            sprite.sprite = spritetemp;
-            yield return new WaitForSeconds(wanderTime*Time.deltaTime*7);
+            //sprite.sprite = spritetemp;
+            yield return new WaitForSeconds(wanderTime*Time.deltaTime*6);
           //  Debug.Log("fuck");
-            sprite.sprite = null;
-            yield return new WaitForSeconds(wanderTime * Time.deltaTime*7);
+            //sprite.sprite = null;
+            yield return new WaitForSeconds(wanderTime * Time.deltaTime*6);
 
         }
 

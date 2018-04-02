@@ -6,24 +6,27 @@ using System;
 public class Controller : MonoBehaviour
 {
     public static float possessTime = 15;
-    public int moveSpeed = 30;
+    public float delayt = 0.3f;
     public float hp = 10;
+    public int moveSpeed = 30;
+    public int direction;
+    private bool onetime = true;
+    private bool pos = false;
+    
+    public PlayerController playerController;
     public Controller Control;
     public shooting shoot;
-    public Sprite Soilder_DEAD;
-    private bool pos = false;
-    public Animator anim;
-    public int direction;
-    public PlayerController playerController;
-    public GameObject bulletSpawn;
-    float delayt = 0.3f;
-
-    private GameObject cachePlayer;
+    
     public GameObject player;
+    public GameObject bulletSpawn;
+    private GameObject cachePlayer;
+    
     public SpriteRenderer sprite;
-    Sprite spritetemp;
-    bool onetime = true;
-
+    public Animator anim;
+    public Animator playerAnim;
+    private Sprite spritetemp;
+    public Sprite Soilder_DEAD;
+    public ParticleSystem playerParticle;
 
     void Start()
     {
@@ -31,6 +34,7 @@ public class Controller : MonoBehaviour
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         sprite = GetComponent<SpriteRenderer>();
         spritetemp = sprite.sprite;
+        
     }
 
     private void Awake()
@@ -93,15 +97,19 @@ public class Controller : MonoBehaviour
                 Control.enabled = false;
                 player.transform.SetParent(null);
                 player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                playerController.cache.transform.position = transform.position;
+                playerController.cache.transform.position = new Vector2(transform.position.x+1,transform.position.y);
                 playerController.cache = null;
-                playerController.sprite.enabled = true;
+                StartCoroutine(delaySprite());
+                //playerController.sprite.enabled = true; //ref
                 StartCoroutine(getOut());
                 this.GetComponent<DeadCon>().Dead();
                 bulletSpawn.SetActive(false);
                 PlayerController.wanderTime = 5;
                 PlayerController.isPossessed = false;
-
+                playerAnim.enabled = true;
+                playerParticle.enableEmission = true;
+                playerAnim.Play("Ex", -1, 0);
+                anim.Play("unPosses", -1, 0);
             }
             if (anim.GetBool("Dead") && pos)
             {
@@ -183,5 +191,10 @@ public class Controller : MonoBehaviour
             yield return new WaitForSeconds(possessTime * Time.deltaTime);
         }
 
+    }
+    IEnumerator delaySprite()
+    {
+        yield return new WaitForSeconds(0.15f);
+        playerController.sprite.enabled = true;
     }
 }
