@@ -52,9 +52,7 @@ public class Controller : MonoBehaviour
             rigid.AddForce(new Vector2(-moveSpeed, 0));
             anim.SetBool("Left", true);
             anim.SetBool("Right", false);
-            anim.SetBool("Up", false);
-            anim.SetBool("Down", false);
-
+            sprite.flipX = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -62,8 +60,10 @@ public class Controller : MonoBehaviour
             rigid.AddForce(new Vector2(moveSpeed, 0));
             anim.SetBool("Right", true);
             anim.SetBool("Left", false);
-            anim.SetBool("Up", false);
-            anim.SetBool("Down", false);
+            Vector3 newScale = player.transform.localScale;
+            newScale.x *= -1;
+            player.transform.localScale = newScale;
+            sprite.flipX = false;
         }
         
         
@@ -79,7 +79,14 @@ public class Controller : MonoBehaviour
                 Control.enabled = false;
                 player.transform.SetParent(null);
                 player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                playerController.cache.transform.position = new Vector2(transform.position.x+1,transform.position.y);
+                if (sprite.flipX == false)
+                {
+                    playerController.cache.transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+                }
+                if (sprite.flipX == true)
+                {
+                    playerController.cache.transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+                }
                 playerController.cache = null;
                 StartCoroutine(delaySprite());
                 //playerController.sprite.enabled = true; //ref
