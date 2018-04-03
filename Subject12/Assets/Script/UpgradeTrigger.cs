@@ -16,12 +16,12 @@ public class UpgradeTrigger : MonoBehaviour
     {
 		if(ScoreBehaviour.scorepoint <= 1100 && ScoreBehaviour.scorepoint >= 1000)
         {
-            Time.timeScale = 0;
+            
             upgradeMenu.SetActive(true);
             if(ButtonBehaviour.trigger == true)
             {
                 upgradeMenu.SetActive(false);
-                Time.timeScale = 1;
+                
             }
         }
 	}

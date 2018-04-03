@@ -21,6 +21,7 @@ public class Controller : MonoBehaviour
     public GameObject bulletSpawn;
     private GameObject cachePlayer;
     
+
     public SpriteRenderer sprite;
     public Animator anim;
     public Animator playerAnim;
@@ -31,15 +32,17 @@ public class Controller : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerController = GameObject.FindGameObjectWithTag("Soul").GetComponent<PlayerController>();
         sprite = GetComponent<SpriteRenderer>();
         spritetemp = sprite.sprite;
+        
         
     }
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Soul");
+
     }
     void Update()
     {

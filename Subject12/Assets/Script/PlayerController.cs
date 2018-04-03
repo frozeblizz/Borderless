@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
             if (control.enabled == false) return;
             if (Input.GetKeyDown(KeyCode.E))
             {
-                print(Vector3.Distance(transform.position, hitWith.transform.position));
+                //print(Vector3.Distance(transform.position, hitWith.transform.position));
                 if (Vector3.Distance(transform.position, hitWith.transform.position) <= 0.5f)
                 {
                     isPossessed = true;
@@ -106,6 +106,8 @@ public class PlayerController : MonoBehaviour
                    
                     hitWith.gameObject.GetComponentInChildren<shooting>().enabled = true;
                     sprite.enabled = false;
+
+                    
 
                     player.transform.SetParent(hitWith.transform);
                     control.enabled = false;

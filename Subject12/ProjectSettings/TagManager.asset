@@ -11,6 +11,7 @@ TagManager:
   - Power
   - Walkway
   - wall
+  - Soul
   layers:
   - Default
   - TransparentFX
