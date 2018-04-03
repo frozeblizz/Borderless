@@ -116,7 +116,8 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(GTFO(gameObject));
                     Controller.possessTime = 15;
                     hitWith.gameObject.GetComponent<EnemyPatrol>().enabled = false;
-                    hitWith.gameObject.GetComponent<Animator>().Play("Posses");
+                    hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", true);
+                    //hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", false);
                     anim.enabled = false;
                     ps.enableEmission = false;
                 }

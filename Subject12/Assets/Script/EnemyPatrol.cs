@@ -6,11 +6,11 @@ public class EnemyPatrol : MonoBehaviour
 {
 
     public float speed;
-    public float stop;
-    public float near;
+    private float stop;
+    private float near;
     private Transform target;
-    public Sprite left;
-    public Sprite right;
+    public bool isleftnaja = false;
+    //public Sprite right;
     public GameObject bulletSpawn;
     public Rigidbody2D projectile;
     public int shootingRange;
@@ -20,21 +20,24 @@ public class EnemyPatrol : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        near = Random.Range(2, 5);
+        stop = Random.Range(2, 5);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Vector2.Distance(transform.position, target.position) < near)
+
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if (Vector2.Distance(transform.position, target.position) < near)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
-            this.GetComponent<SpriteRenderer>().sprite = left;
+            
         }
         else if(Vector2.Distance(transform.position, target.position) > stop)
         { 
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            this.GetComponent<SpriteRenderer>().sprite = right;
+            
         }
         else if(Vector2.Distance(transform.position, target.position) < stop && Vector2.Distance(transform.position, target.position) > near)
         {
@@ -46,7 +49,9 @@ public class EnemyPatrol : MonoBehaviour
             {
                 Rigidbody2D instantiatedProjectile = Instantiate(projectile, bulletSpawn.transform.position, bulletSpawn.transform.rotation) as
                 Rigidbody2D;
-                instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(speed*3, 0, 0));
+                    instantiatedProjectile.velocity = Vector2.MoveTowards(bulletSpawn.transform.position, target.position, speed * 200 * Time.deltaTime);
+
+
                 delaytime = 1;
                 delay = true;
             }
@@ -59,6 +64,17 @@ public class EnemyPatrol : MonoBehaviour
                 delay = false;
             }
         }
+        if (target.position.x < transform.position.x && !isleftnaja)
+        {
+            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            isleftnaja = true;
+        }
+        else if (target.position.x >= transform.position.x && isleftnaja)
+        {
+            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            isleftnaja = false;
+        }
+            
     }
 
 }

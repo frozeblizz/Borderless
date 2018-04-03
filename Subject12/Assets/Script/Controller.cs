@@ -44,7 +44,7 @@ public class Controller : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Soul");
 
     }
-    void Update()
+    void Update() 
     {
 
         Rigidbody2D rigid = GetComponent<Rigidbody2D>();
@@ -55,18 +55,24 @@ public class Controller : MonoBehaviour
             rigid.AddForce(new Vector2(-moveSpeed, 0));
             anim.SetBool("Left", true);
             anim.SetBool("Right", false);
-            sprite.flipX = true;
+            //sprite.flipX = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             direction = 1;
             rigid.AddForce(new Vector2(moveSpeed, 0));
             anim.SetBool("Right", true);
+            anim.SetBool("Posses", false);
             anim.SetBool("Left", false);
-            Vector3 newScale = player.transform.localScale;
+            if (this.GetComponent<EnemyPatrol>().isleftnaja == true)
+            {
+                this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                this.GetComponent<EnemyPatrol>().isleftnaja = false;
+            }
+            /*Vector3 newScale = player.transform.localScale;
             newScale.x *= -1;
             player.transform.localScale = newScale;
-            sprite.flipX = false;
+            sprite.flipX = false;*/
         }
         
         
@@ -82,14 +88,14 @@ public class Controller : MonoBehaviour
                 Control.enabled = false;
                 player.transform.SetParent(null);
                 player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                if (sprite.flipX == false)
+               /* if (sprite.flipX == false)
                 {
                     playerController.cache.transform.position = new Vector2(transform.position.x + 1, transform.position.y);
                 }
                 if (sprite.flipX == true)
                 {
                     playerController.cache.transform.position = new Vector2(transform.position.x - 1, transform.position.y);
-                }
+                }*/
                 playerController.cache = null;
                 StartCoroutine(delaySprite());
                 //playerController.sprite.enabled = true; //ref
@@ -100,8 +106,9 @@ public class Controller : MonoBehaviour
                 PlayerController.isPossessed = false;
                 playerAnim.enabled = true;
                 playerParticle.enableEmission = true;
-                playerAnim.Play("Ex", -1, 0);
-                anim.Play("unPosses", -1, 0);
+                //playerAnim.Play("Ex", -1, 0);
+                anim.SetBool("unPosses", true);
+
             }
             if (anim.GetBool("Dead") && pos)
             {
