@@ -14,17 +14,22 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigid;
     [HideInInspector]
     public SpriteRenderer sprite;
+
     [HideInInspector]
     public PlayerController control;
+
     [HideInInspector]
     public shooting shoot;
+
     [HideInInspector]
     public GameObject cache;
+
     [HideInInspector]
     public Sprite spritetemp;
 
     public GameObject player;
-    
+    public GameObject gameOver;
+
     bool onetime = true;
     // Use this for initialization
     void Start()
@@ -34,6 +39,7 @@ public class PlayerController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         ps = GetComponent<ParticleSystem>();
+        gameOver.SetActive(false);
        // spritetemp = sprite.sprite;
     }
 
@@ -80,7 +86,8 @@ public class PlayerController : MonoBehaviour
        if(wanderTime <= 0)
        {
             Destroy(gameObject);
-           Time.timeScale = 0;
+            gameOver.SetActive(true);
+            Time.timeScale = 0;
        }
     }
 

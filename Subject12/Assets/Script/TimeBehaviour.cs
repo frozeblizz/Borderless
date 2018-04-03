@@ -7,6 +7,8 @@ public class TimeBehaviour : MonoBehaviour {
 
     static public float time;
     public Text text;
+    public GameObject gameOver;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -21,7 +23,9 @@ public class TimeBehaviour : MonoBehaviour {
         time -= 1 * Time.deltaTime;
         if ( time <= 0 )
         {
+            gameOver.SetActive(true);
             Time.timeScale = 0;
+            
         }
 	}
 }
