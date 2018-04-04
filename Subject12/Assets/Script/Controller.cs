@@ -54,8 +54,11 @@ public class Controller : MonoBehaviour
             direction = 0;
             rigid.AddForce(new Vector2(-moveSpeed, 0));
             anim.SetBool("Left", true);
-            anim.SetBool("Right", false);
-            //sprite.flipX = true;+
+           anim.SetBool("Right", false);
+            //sprite.flipX = true;
+            Vector3 newScale = player.transform.localScale;
+            newScale.x *= -1;
+            player.transform.localScale = newScale;
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -64,15 +67,16 @@ public class Controller : MonoBehaviour
             anim.SetBool("Right", true);
             anim.SetBool("Posses", false);
             anim.SetBool("Left", false);
+            sprite.flipX = false;
             if (this.GetComponent<EnemyPatrol>().isleftnaja == true)
             {
                 this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 this.GetComponent<EnemyPatrol>().isleftnaja = false;
             }
-            /*Vector3 newScale = player.transform.localScale;
+            Vector3 newScale = player.transform.localScale;
             newScale.x *= -1;
             player.transform.localScale = newScale;
-            sprite.flipX = false;*/
+            
         }
         
         
