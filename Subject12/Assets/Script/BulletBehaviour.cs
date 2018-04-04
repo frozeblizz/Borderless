@@ -24,7 +24,7 @@ public class BulletBehaviour : MonoBehaviour
             {
                 Debug.Log("HeadShot!!");
                 Instantiate(blood[Random.Range(0, 10)], this.transform.position, this.transform.rotation);
-                TimeBehaviour.time += 3; 
+                //TimeBehaviour.time += 3; 
                 ScoreBehaviour.scorepoint += (int)(150 * ScoreBehaviour.multiplier);
                 collision.GetComponentInParent<DeadCon>().Dead();
                 Destroy(gameObject);

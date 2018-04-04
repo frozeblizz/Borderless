@@ -27,7 +27,7 @@ public class ButtonBehaviour : MonoBehaviour {
         }
         if(Upgrade == "Score")
         {
-            ScoreBehaviour.multiplier += 0.25f;
+            ScoreBehaviour.multiplier += 0.1f;
         }
         
     }
