@@ -25,6 +25,10 @@ public class ButtonBehaviour : MonoBehaviour {
         {
             TimeBehaviour.time += 30;
         }
+        if(Upgrade == "Score")
+        {
+            ScoreBehaviour.multiplier += 0.25f;
+        }
         
     }
 }

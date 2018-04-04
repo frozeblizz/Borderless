@@ -20,7 +20,7 @@ public class Controller : MonoBehaviour
     public GameObject player;
     public GameObject bulletSpawn;
     private GameObject cachePlayer;
-    
+    public GameObject gameOver;
 
     public SpriteRenderer sprite;
     public Animator anim;
@@ -112,7 +112,7 @@ public class Controller : MonoBehaviour
             }
             if (anim.GetBool("Dead") && pos)
             {
-                Time.timeScale = 0;
+                gameOver.SetActive(true);
             }
         }
         if (hp <= 0)
@@ -136,7 +136,7 @@ public class Controller : MonoBehaviour
         if (possessTime <= 0)
         {
             this.GetComponent<DeadCon>().Dead();
-            Time.timeScale = 0;
+            gameOver.SetActive(true);
         }
     }
 
