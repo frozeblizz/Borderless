@@ -18,17 +18,16 @@ public class ButtonBehaviour : MonoBehaviour {
 		
 	}
 
-    public void Clicked(string Upgrade)
+    public void Clicked(string Scene)
     {
-        trigger = true;
-        if (Upgrade == "Time")
+    
+        if(Scene == "Prototype")
         {
-            TimeBehaviour.time += 30;
+            Application.LoadLevel("Prototype");
         }
-        if(Upgrade == "Score")
+        if(Scene == "Quit")
         {
-            ScoreBehaviour.multiplier += 0.1f;
+            Application.Quit();
         }
-        
     }
 }

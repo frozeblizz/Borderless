@@ -112,7 +112,8 @@ public class PlayerController : MonoBehaviour
                     player.transform.SetParent(hitWith.transform);
                     control.enabled = false;
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                    
+                    rigid.velocity = Vector2.zero;
+
                     StartCoroutine(GTFO(gameObject));
                     Controller.possessTime = 15;
                     hitWith.gameObject.GetComponent<EnemyPatrol>().enabled = false;
