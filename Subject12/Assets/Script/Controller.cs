@@ -55,7 +55,7 @@ public class Controller : MonoBehaviour
             rigid.AddForce(new Vector2(-moveSpeed, 0));
             anim.SetBool("Left", true);
             anim.SetBool("Right", false);
-            //sprite.flipX = true;
+            //sprite.flipX = true;+
         }
         if (Input.GetKey(KeyCode.D))
         {
