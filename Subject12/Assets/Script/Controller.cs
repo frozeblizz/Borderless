@@ -106,7 +106,7 @@ public class Controller : MonoBehaviour
                 PlayerController.isPossessed = false;
                 playerAnim.enabled = true;
                 playerParticle.enableEmission = true;
-                //playerAnim.Play("Ex", -1, 0);
+                playerAnim.Play("Ex", -1, 0);
                 anim.SetBool("unPosses", true);
 
             }
