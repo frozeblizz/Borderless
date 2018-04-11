@@ -12,7 +12,8 @@ public class Controller : MonoBehaviour
     public int direction;
     private bool onetime = true;
     private bool pos = false;
-    
+    public static bool confuse = false;
+
     public PlayerController playerController;
     public Controller Control;
     public shooting shoot;
@@ -54,7 +55,7 @@ public class Controller : MonoBehaviour
             direction = 0;
             rigid.AddForce(new Vector2(-moveSpeed, 0));
             anim.SetBool("Left", true);
-           anim.SetBool("Right", false);
+            anim.SetBool("Right", false);
             //sprite.flipX = true;
             Vector3 newScale = player.transform.localScale;
             newScale.x *= -1;
@@ -67,7 +68,7 @@ public class Controller : MonoBehaviour
             anim.SetBool("Right", true);
             anim.SetBool("Posses", false);
             anim.SetBool("Left", false);
-            sprite.flipX = false;
+            //sprite.flipX = false;
             if (this.GetComponent<EnemyPatrol>().isleftnaja == true)
             {
                 this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
@@ -79,6 +80,7 @@ public class Controller : MonoBehaviour
             
         }
         
+      
         
 
         if (playerController.cache != null)
@@ -112,6 +114,12 @@ public class Controller : MonoBehaviour
                 playerParticle.enableEmission = true;
                 playerAnim.Play("Ex", -1, 0);
                 anim.SetBool("unPosses", true);
+                confuse = true;
+            }
+            if (confuse == true)
+            {
+                Debug.Log("confuse");
+                rigid.velocity = new Vector2(0, 0);
 
             }
             if (anim.GetBool("Dead") && pos)

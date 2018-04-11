@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
                     hitWith.gameObject.GetComponentInChildren<shooting>().enabled = true;
                     sprite.enabled = false;
 
-                    
+                    Controller.confuse = false;
 
                     player.transform.SetParent(hitWith.transform);
                     control.enabled = false;

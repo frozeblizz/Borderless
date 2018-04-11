@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonBehaviour : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class ButtonBehaviour : MonoBehaviour {
     
         if(Scene == "Prototype")
         {
-            Application.LoadLevel("Prototype");
+            SceneManager.LoadScene("Prototype");
         }
         if(Scene == "Quit")
         {
