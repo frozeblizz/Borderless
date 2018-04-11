@@ -10,7 +10,7 @@ public class Controller : MonoBehaviour
     public float hp = 10;
     public int moveSpeed = 30;
     public int direction;
-    private bool onetime = true;
+    private bool onetime = false;
     private bool pos = false;
     public static bool confuse = false;
 
@@ -54,35 +54,37 @@ public class Controller : MonoBehaviour
         {
             direction = 0;
             rigid.AddForce(new Vector2(-moveSpeed, 0));
-            anim.SetBool("Left", true);
-            anim.SetBool("Right", false);
+           /* anim.SetBool("Left", true); //set left animation to true
+            anim.SetBool("Right", false);//set right animation to false*/
             //sprite.flipX = true;
-            Vector3 newScale = player.transform.localScale;
-            newScale.x *= -1;
-            player.transform.localScale = newScale;
+            if(this.transform.localScale.x > 0)
+            {
+                 Vector3 newScale = this.transform.localScale;
+                 newScale.x *= -1;
+                this.transform.localScale = newScale;
+            }
+           
         }
         if (Input.GetKey(KeyCode.D))
         {
             direction = 1;
             rigid.AddForce(new Vector2(moveSpeed, 0));
-            anim.SetBool("Right", true);
-            anim.SetBool("Posses", false);
-            anim.SetBool("Left", false);
-            //sprite.flipX = false;
-            if (this.GetComponent<EnemyPatrol>().isleftnaja == true)
+            /*   anim.SetBool("Right", true);
+               anim.SetBool("Posses", false);
+               anim.SetBool("Left", false);*/
+            //  sprite.flipX = false;
+            /*if (this.GetComponent<EnemyPatrol>().isleftnaja == true)
             {
                 this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 this.GetComponent<EnemyPatrol>().isleftnaja = false;
+            }*/
+            if (this.transform.localScale.x < 0)
+            {
+                 Vector3 newScale = this.transform.localScale;
+                 newScale.x *= -1;
+                 this.transform.localScale = newScale;
             }
-            Vector3 newScale = player.transform.localScale;
-            newScale.x *= -1;
-            player.transform.localScale = newScale;
-            
         }
-        
-      
-        
-
         if (playerController.cache != null)
         {
             //Debug.Log("not null");

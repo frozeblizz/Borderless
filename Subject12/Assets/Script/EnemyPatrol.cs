@@ -64,12 +64,12 @@ public class EnemyPatrol : MonoBehaviour
                 delay = false;
             }
         }
-        if (target.position.x < transform.position.x && !isleftnaja)
-        {
+        if (target.position.x < transform.position.x && this.transform.localScale.x > 0)
+        { 
             this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             isleftnaja = true;
         }
-        else if (target.position.x >= transform.position.x && isleftnaja)
+        else if (target.position.x >= transform.position.x &&this.transform.localScale.x < 0)
         {
             this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             isleftnaja = false;

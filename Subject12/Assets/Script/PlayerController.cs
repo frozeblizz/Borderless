@@ -49,13 +49,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             rigid.AddForce(new Vector2(-moveSpeed, 0));
-
         }
         if (Input.GetKey(KeyCode.D))
         {
-
             rigid.AddForce(new Vector2(moveSpeed, 0));
-
         }
         /*if (Input.GetKey(KeyCode.W))
         {
