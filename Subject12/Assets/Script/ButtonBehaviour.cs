@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonBehaviour : MonoBehaviour {
 
@@ -18,13 +19,16 @@ public class ButtonBehaviour : MonoBehaviour {
 		
 	}
 
-    public void Clicked(string Upgrade)
+    public void Clicked(string Scene)
     {
-        trigger = true;
-        if (Upgrade == "Time")
+    
+        if(Scene == "Prototype")
         {
-            TimeBehaviour.time += 30;
+            SceneManager.LoadScene("Prototype");
         }
-        
+        if(Scene == "Quit")
+        {
+            Application.Quit();
+        }
     }
 }

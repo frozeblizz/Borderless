@@ -24,8 +24,8 @@ public class BulletBehaviour : MonoBehaviour
             {
                 Debug.Log("HeadShot!!");
                 Instantiate(blood[Random.Range(0, 10)], this.transform.position, this.transform.rotation);
-                TimeBehaviour.time += 3; 
-                ScoreBehaviour.scorepoint += 150;
+                //TimeBehaviour.time += 3; 
+                ScoreBehaviour.scorepoint += (int)(150 * ScoreBehaviour.multiplier);
                 collision.GetComponentInParent<DeadCon>().Dead();
                 Destroy(gameObject);
                 
@@ -35,7 +35,7 @@ public class BulletBehaviour : MonoBehaviour
             {
                 Debug.Log("Body shot!!");
                 Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
-                ScoreBehaviour.scorepoint += 100;
+                ScoreBehaviour.scorepoint += (int)(100 * ScoreBehaviour.multiplier);
                 collision.GetComponentInParent<DeadCon>().HP();
                 Destroy(gameObject);
             }     

@@ -10,9 +10,10 @@ public class Controller : MonoBehaviour
     public float hp = 10;
     public int moveSpeed = 30;
     public int direction;
-    private bool onetime = true;
+    private bool onetime = false;
     private bool pos = false;
-    
+    public static bool confuse = false;
+
     public PlayerController playerController;
     public Controller Control;
     public shooting shoot;
@@ -20,7 +21,7 @@ public class Controller : MonoBehaviour
     public GameObject player;
     public GameObject bulletSpawn;
     private GameObject cachePlayer;
-    
+    public GameObject gameOver;
 
     public SpriteRenderer sprite;
     public Animator anim;
@@ -44,7 +45,7 @@ public class Controller : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Soul");
 
     }
-    void Update()
+    void Update() 
     {
 
         Rigidbody2D rigid = GetComponent<Rigidbody2D>();
@@ -53,24 +54,37 @@ public class Controller : MonoBehaviour
         {
             direction = 0;
             rigid.AddForce(new Vector2(-moveSpeed, 0));
-            anim.SetBool("Left", true);
-            anim.SetBool("Right", false);
-            sprite.flipX = true;
+           /* anim.SetBool("Left", true); //set left animation to true
+            anim.SetBool("Right", false);//set right animation to false*/
+            //sprite.flipX = true;
+            if(this.transform.localScale.x > 0)
+            {
+                 Vector3 newScale = this.transform.localScale;
+                 newScale.x *= -1;
+                this.transform.localScale = newScale;
+            }
+           
         }
         if (Input.GetKey(KeyCode.D))
         {
             direction = 1;
             rigid.AddForce(new Vector2(moveSpeed, 0));
-            anim.SetBool("Right", true);
-            anim.SetBool("Left", false);
-            Vector3 newScale = player.transform.localScale;
-            newScale.x *= -1;
-            player.transform.localScale = newScale;
-            sprite.flipX = false;
+            /*   anim.SetBool("Right", true);
+               anim.SetBool("Posses", false);
+               anim.SetBool("Left", false);*/
+            //  sprite.flipX = false;
+            /*if (this.GetComponent<EnemyPatrol>().isleftnaja == true)
+            {
+                this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                this.GetComponent<EnemyPatrol>().isleftnaja = false;
+            }*/
+            if (this.transform.localScale.x < 0)
+            {
+                 Vector3 newScale = this.transform.localScale;
+                 newScale.x *= -1;
+                 this.transform.localScale = newScale;
+            }
         }
-        
-        
-
         if (playerController.cache != null)
         {
             //Debug.Log("not null");
@@ -82,14 +96,14 @@ public class Controller : MonoBehaviour
                 Control.enabled = false;
                 player.transform.SetParent(null);
                 player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                if (sprite.flipX == false)
+               /* if (sprite.flipX == false)
                 {
                     playerController.cache.transform.position = new Vector2(transform.position.x + 1, transform.position.y);
                 }
                 if (sprite.flipX == true)
                 {
                     playerController.cache.transform.position = new Vector2(transform.position.x - 1, transform.position.y);
-                }
+                }*/
                 playerController.cache = null;
                 StartCoroutine(delaySprite());
                 //playerController.sprite.enabled = true; //ref
@@ -101,11 +115,18 @@ public class Controller : MonoBehaviour
                 playerAnim.enabled = true;
                 playerParticle.enableEmission = true;
                 playerAnim.Play("Ex", -1, 0);
-                anim.Play("unPosses", -1, 0);
+                anim.SetBool("unPosses", true);
+                confuse = true;
+            }
+            if (confuse == true)
+            {
+                Debug.Log("confuse");
+                rigid.velocity = new Vector2(0, 0);
+
             }
             if (anim.GetBool("Dead") && pos)
             {
-                Time.timeScale = 0;
+                gameOver.SetActive(true);
             }
         }
         if (hp <= 0)
@@ -129,7 +150,7 @@ public class Controller : MonoBehaviour
         if (possessTime <= 0)
         {
             this.GetComponent<DeadCon>().Dead();
-            Time.timeScale = 0;
+            gameOver.SetActive(true);
         }
     }
 

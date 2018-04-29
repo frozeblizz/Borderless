@@ -49,13 +49,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             rigid.AddForce(new Vector2(-moveSpeed, 0));
-
         }
         if (Input.GetKey(KeyCode.D))
         {
-
             rigid.AddForce(new Vector2(moveSpeed, 0));
-
         }
         /*if (Input.GetKey(KeyCode.W))
         {
@@ -107,16 +104,18 @@ public class PlayerController : MonoBehaviour
                     hitWith.gameObject.GetComponentInChildren<shooting>().enabled = true;
                     sprite.enabled = false;
 
-                    
+                    Controller.confuse = false;
 
                     player.transform.SetParent(hitWith.transform);
                     control.enabled = false;
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                    
+                    rigid.velocity = Vector2.zero;
+
                     StartCoroutine(GTFO(gameObject));
                     Controller.possessTime = 15;
                     hitWith.gameObject.GetComponent<EnemyPatrol>().enabled = false;
-                    hitWith.gameObject.GetComponent<Animator>().Play("Posses");
+                    hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", true);
+                    //hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", false);
                     anim.enabled = false;
                     ps.enableEmission = false;
                 }

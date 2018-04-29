@@ -67,11 +67,11 @@ public class shooting : MonoBehaviour {
 
         if (c.direction == 1)
         {
-            transform.localPosition = new Vector3(0.75f, 0, 0);
+            transform.localScale = new Vector3(1, 1, 1);
         }
         if (c.direction == 0)
         {
-            transform.localPosition = new Vector3(-0.75f, 0, 0);
+            transform.localScale = new Vector3(-1,1,1);
         }
         if (c.direction == 2)
         {
