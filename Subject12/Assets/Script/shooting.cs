@@ -35,6 +35,12 @@ public class shooting : MonoBehaviour {
             {
                 this.GetComponentInParent<Animator>().SetBool("attack", true);
                 StartCoroutine(delay());
+                Debug.Log("atk");
+            }
+            if(this.gameObject.layer == 10)
+            {
+                StartCoroutine(delay());
+                Debug.Log("atk");
             }
             
 

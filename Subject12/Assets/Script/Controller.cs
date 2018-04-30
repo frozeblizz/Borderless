@@ -120,8 +120,16 @@ public class Controller : MonoBehaviour
             }
             if (confuse == true)
             {
-                Debug.Log("confuse");
-                rigid.velocity = new Vector2(0, 0);
+                if (this.gameObject.layer == 10)
+                {
+                    rigid.velocity = new Vector2(2, 0);
+                }
+                else
+                {
+                    Debug.Log("confuse");
+                    rigid.velocity = new Vector2(0, 0);
+                }
+                
 
             }
             if (anim.GetBool("Dead") && pos)
