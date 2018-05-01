@@ -20,17 +20,7 @@ public class BulletBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         {
-            if (collision.gameObject.tag == "Head")
-            {
-                Debug.Log("HeadShot!!");
-                Instantiate(blood[Random.Range(0, 10)], this.transform.position, this.transform.rotation);
-                //TimeBehaviour.time += 3; 
-                ScoreBehaviour.scorepoint += (int)(150 * ScoreBehaviour.multiplier);
-                collision.GetComponentInParent<DeadCon>().Dead();
-                Destroy(gameObject);
-                
-            }
-            else
+           
             if (collision.gameObject.tag == "Body")
             {
                 Debug.Log("Body shot!!");

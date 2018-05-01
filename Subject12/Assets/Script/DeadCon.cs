@@ -12,7 +12,8 @@ public class DeadCon : MonoBehaviour {
     bool die = false;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         anim = GetComponent<Animator>();
     }
 	
@@ -20,6 +21,7 @@ public class DeadCon : MonoBehaviour {
 	void Update () {
         if (hp <= 0)
         {
+            Debug.Log("die");
             Dead();
         }
         if(die)
@@ -33,7 +35,7 @@ public class DeadCon : MonoBehaviour {
     }
    public void Dead()
     {
-       anim.SetBool("Dead", true);
+        anim.SetBool("Dead", true);
         die = true;
         this.GetComponent<BoxCollider2D>().enabled = false;
         transform.Find("Head").gameObject.SetActive(false);

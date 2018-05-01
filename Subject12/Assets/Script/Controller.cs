@@ -137,15 +137,7 @@ public class Controller : MonoBehaviour
                 gameOver.SetActive(true);
             }
         }
-        if (hp <= 0)
-        {
-            this.GetComponent<DeadCon>().Dead();
-            delayt -= 1 * Time.deltaTime;
-            if (delayt <= 0)
-            {
-                pos = true;
-            }
-        }
+        
         if (PlayerController.isPossessed == true)
         {
             possessTime -= 1 * Time.deltaTime;
@@ -163,14 +155,7 @@ public class Controller : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D hitWith)
-    {
-        if (hitWith.gameObject.tag == "Bullet")
-        {
-            hp -= 1;
-        }
-
-    }
+   
 
 
     private void OnCollisionStay2D(Collision2D hitWith)
