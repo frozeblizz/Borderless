@@ -52,9 +52,7 @@ public class Controller : MonoBehaviour
         {
             
             rigid.AddForce(new Vector2(-moveSpeed, 0));
-           /* anim.SetBool("Left", true); //set left animation to true
-            anim.SetBool("Right", false);//set right animation to false*/
-            //sprite.flipX = true;
+           
             if(this.transform.localScale.x > 0)
             {
                  Vector3 newScale = this.transform.localScale;
@@ -67,15 +65,7 @@ public class Controller : MonoBehaviour
         {
             
             rigid.AddForce(new Vector2(moveSpeed, 0));
-            /*   anim.SetBool("Right", true);
-               anim.SetBool("Posses", false);
-               anim.SetBool("Left", false);*/
-            //  sprite.flipX = false;
-            /*if (this.GetComponent<EnemyPatrol>().isleftnaja == true)
-            {
-                this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-                this.GetComponent<EnemyPatrol>().isleftnaja = false;
-            }*/
+            
             if (this.transform.localScale.x < 0)
             {
                  Vector3 newScale = this.transform.localScale;
@@ -103,17 +93,10 @@ public class Controller : MonoBehaviour
                 Control.enabled = false;
                 player.transform.SetParent(null);
                 player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-               /* if (sprite.flipX == false)
-                {
-                    playerController.cache.transform.position = new Vector2(transform.position.x + 1, transform.position.y);
-                }
-                if (sprite.flipX == true)
-                {
-                    playerController.cache.transform.position = new Vector2(transform.position.x - 1, transform.position.y);
-                }*/
+               
                 playerController.cache = null;
                 StartCoroutine(delaySprite());
-                //playerController.sprite.enabled = true; //ref
+                
                 StartCoroutine(getOut());
                 this.GetComponent<DeadCon>().Dead();
                 bulletSpawn.SetActive(false);
@@ -171,18 +154,7 @@ public class Controller : MonoBehaviour
         {
             this.GetComponent<DeadCon>().Dead();
 
-            /*delayt -= 1*Time.deltaTime;
-            if(delayt <=0)
-            {
-                pos = true;
-                Time.timeScale = 0;
-            }
             
-            /*hp -= 3 * Time.deltaTime;
-            if (hp <= 0)
-            {
-               
-            }*/
         }
 
     }

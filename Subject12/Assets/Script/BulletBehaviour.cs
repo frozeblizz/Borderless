@@ -14,7 +14,7 @@ public class BulletBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 1.5f);
+        //Destroy(gameObject, 1.5f);
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,7 +35,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         if(collision.gameObject.tag == "wall")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 

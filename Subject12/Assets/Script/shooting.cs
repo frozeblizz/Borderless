@@ -30,11 +30,12 @@ public class shooting : MonoBehaviour {
             {
                 instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as
                 Rigidbody2D;
+               
             }
             if(this.gameObject.layer == 8)
             {
                 this.GetComponentInParent<Animator>().SetBool("attack", true);
-                StartCoroutine(delay());
+                //StartCoroutine(delay());
                 Debug.Log("atk");
             }
             if(this.gameObject.layer == 10)

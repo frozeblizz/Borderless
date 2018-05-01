@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (hitWith.gameObject.layer == 8)
                     {
-                        hitWith.gameObject.GetComponent<Animator>().SetBool("DRPosses", true);
+                        hitWith.gameObject.GetComponent<Animator>().Play("DRPosses", -1,0);
                     }
                     //hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", false);
                     anim.enabled = false;
