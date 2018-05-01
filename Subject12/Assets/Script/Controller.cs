@@ -108,21 +108,21 @@ public class Controller : MonoBehaviour
                 
                 confuse = true;
             }
-            if (confuse == true)
-            {
-                if (this.gameObject.layer == 10)
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, playerController.transform.position, 2 * Time.deltaTime);
-                }
-                else
-                {
+            //if (confuse == true)
+            //{
+            //    if (this.gameObject.layer == 10)
+            //    {
+            //        transform.position = Vector2.MoveTowards(transform.position, playerController.transform.position, 2 * Time.deltaTime);
+            //    }
+            //    else
+            //    {
 
-                    Debug.Log("confuse");
-                    rigid.velocity = new Vector2(0, 0);
-                }
+            //        Debug.Log("confuse");
+            //        rigid.velocity = new Vector2(0, 0);
+            //    }
 
 
-            }
+            //}
             if (anim.GetBool("Dead") && pos)
             {
                 gameOver.SetActive(true);
