@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletBehaviour : MonoBehaviour
+public class AIBulletBehaviour : MonoBehaviour
 {
     public GameObject[] blood;
 
@@ -20,19 +20,19 @@ public class BulletBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         {
-                if (collision.gameObject.tag == "AI")
-                {
-                    Debug.Log("Hit!!");
-                    Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
+            if (collision.gameObject.tag == "Player")
+            {
+                Debug.Log("AI_Hit!!");
+                Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
 
-                    collision.GetComponentInParent<DeadCon>().decreaseHP();
-                    Destroy(gameObject);
-                }
+                collision.GetComponentInParent<DeadCon>().decreaseHP();
+                Destroy(gameObject);
+            }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "wall")
+        if (collision.gameObject.tag == "wall")
         {
             //Destroy(gameObject);
         }

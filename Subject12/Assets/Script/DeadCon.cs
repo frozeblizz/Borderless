@@ -7,7 +7,7 @@ public class DeadCon : MonoBehaviour {
    // public int hp = 10;
     //public Sprite DEAD;
     Animator anim;
-    public int hp = 10;
+    public int hp;
     float delayt = 0.3f;
     bool die = false;
 
@@ -38,14 +38,14 @@ public class DeadCon : MonoBehaviour {
         anim.SetBool("Dead", true);
         die = true;
         this.GetComponent<BoxCollider2D>().enabled = false;
-        transform.Find("Head").gameObject.SetActive(false);
+        
         transform.Find("Body").gameObject.SetActive(false);
         this.GetComponent<EnemyPatrol>().enabled = false;
         this.GetComponent<Controller>().enabled = false;
         
         //this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
-    public void HP()
+    public void decreaseHP()
     {
         hp -= 1;
         if(hp <= 0)
@@ -55,15 +55,8 @@ public class DeadCon : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (transform.Find("Head"))
-        {
-            if (collision.gameObject.tag == "Bullet")
-            {
-                hp -= 10; 
-            }
-        }
-        else
-            if (transform.Find("Body"))
+        
+        if (transform.Find("Body"))
         {
             if (collision.gameObject.tag == "Bullet")
             {

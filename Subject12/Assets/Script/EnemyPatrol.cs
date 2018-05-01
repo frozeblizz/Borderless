@@ -22,8 +22,8 @@ public class EnemyPatrol : MonoBehaviour
     {
        
         player = GameObject.FindGameObjectWithTag("Soul");
-        near = Random.Range(2, 5);
-        stop = Random.Range(2, 5);
+        near = 5;
+        stop = 5;
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class EnemyPatrol : MonoBehaviour
         }
         else if(Vector2.Distance(transform.position, target.position) > stop)
         { 
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x,-2.1f), target.position, speed * Time.deltaTime);
             
         }
         else if(Vector2.Distance(transform.position, target.position) < stop && Vector2.Distance(transform.position, target.position) > near)
@@ -51,7 +51,16 @@ public class EnemyPatrol : MonoBehaviour
             {
                 Rigidbody2D instantiatedProjectile = Instantiate(projectile, bulletSpawn.transform.position, bulletSpawn.transform.rotation) as
                 Rigidbody2D;
-                    instantiatedProjectile.velocity = Vector2.MoveTowards(bulletSpawn.transform.position, target.position, speed * 200 * Time.deltaTime);
+                if(target.transform.position.x < this.transform.position.x)
+                {
+                    instantiatedProjectile.velocity = new Vector2(-20 , 0);
+                }
+                else if (target.transform.position.x > this.transform.position.x)
+                {
+                    instantiatedProjectile.velocity = new Vector2(20 , 0);
+                }
+
+                
 
 
                 delaytime = 1;

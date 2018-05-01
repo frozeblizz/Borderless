@@ -9,7 +9,7 @@ public class Attack : MonoBehaviour {
     public float speed = 20;
     public float fireRate;
     private float nextFire;
-    public GameObject Controller;
+    
     Controller c;
     public GameObject bulletSpawn;
     Rigidbody2D instantiatedProjectile;
@@ -30,7 +30,16 @@ public class Attack : MonoBehaviour {
             {
                 instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as
                 Rigidbody2D;
-               
+
+                if (Controller.right == true)
+                {
+                    instantiatedProjectile.velocity = new Vector3(20,0,0);
+                }
+                else if (Controller.left == true)
+                {
+                    instantiatedProjectile.velocity = new Vector3(-20, 0, 0);
+                }
+                
             }
             if(this.gameObject.layer == 8)
             {
@@ -61,7 +70,7 @@ public class Attack : MonoBehaviour {
         {
             Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
             ScoreBehaviour.scorepoint += 100;
-            collision.GetComponentInParent<DeadCon>().HP();
+            collision.GetComponentInParent<DeadCon>().decreaseHP();
         }
         if (collision.tag == "Head" && this.GetComponentInParent<Animator>().GetBool("attack"))
         {

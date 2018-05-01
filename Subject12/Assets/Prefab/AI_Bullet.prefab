@@ -9,34 +9,34 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1627843174850254}
+  m_RootGameObject: {fileID: 1318447287172896}
   m_IsPrefabParent: 1
---- !u!1 &1627843174850254
+--- !u!1 &1318447287172896
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4901548810081148}
-  - component: {fileID: 33534491311614468}
-  - component: {fileID: 23877061574031194}
-  - component: {fileID: 114216092670021610}
-  - component: {fileID: 50985710684723780}
-  - component: {fileID: 61274714374132962}
+  - component: {fileID: 4130801314922368}
+  - component: {fileID: 33425609532710054}
+  - component: {fileID: 23236558714441404}
+  - component: {fileID: 50739529750995318}
+  - component: {fileID: 61285531554722384}
+  - component: {fileID: 114341123960280698}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: AI_Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4901548810081148
+--- !u!4 &4130801314922368
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627843174850254}
+  m_GameObject: {fileID: 1318447287172896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.280894, y: -5.899298, z: -0.019962}
   m_LocalScale: {x: 0.1634382, y: 0.19305176, z: 1.4664284}
@@ -44,12 +44,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23877061574031194
+--- !u!23 &23236558714441404
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627843174850254}
+  m_GameObject: {fileID: 1318447287172896}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -78,20 +78,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33534491311614468
+--- !u!33 &33425609532710054
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627843174850254}
+  m_GameObject: {fileID: 1318447287172896}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!50 &50985710684723780
+--- !u!50 &50739529750995318
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627843174850254}
+  m_GameObject: {fileID: 1318447287172896}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -105,12 +105,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 2
---- !u!61 &61274714374132962
+--- !u!61 &61285531554722384
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627843174850254}
+  m_GameObject: {fileID: 1318447287172896}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -130,25 +130,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114216092670021610
+--- !u!114 &114341123960280698
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627843174850254}
+  m_GameObject: {fileID: 1318447287172896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f1f0193b0ac8404b905fe6ae84c3356, type: 3}
+  m_Script: {fileID: 11500000, guid: d443278be33910b4ab13b30d76168e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blood:
-  - {fileID: 1436778462787666, guid: bc7589c00d6861e4291543a454c93b3f, type: 2}
-  - {fileID: 1980681040803380, guid: dbd37a75725c8c246b131007124a96fc, type: 2}
-  - {fileID: 1408986675772018, guid: e65037c9db82da940993c774a4114728, type: 2}
-  - {fileID: 1132863116580742, guid: d43c9ab8876bdae4899b1da0268d2202, type: 2}
-  - {fileID: 1217755715153444, guid: fc50f09e59174fe43b3f9af627ec4741, type: 2}
-  - {fileID: 1863877477349476, guid: 5c30ae60af613094e8fb53d10b135208, type: 2}
-  - {fileID: 1561169806190746, guid: d2118115d1cf4ff41bef99f4055c7806, type: 2}
-  - {fileID: 1951082656318054, guid: bec0f260e934cba41b562be8c97016f3, type: 2}
-  - {fileID: 1731766450528692, guid: 94ae9264b61ff734dbaf6fa0c00994a2, type: 2}
-  - {fileID: 1023629286261254, guid: 171e5b9f69322a647be648d9556348c7, type: 2}
+  blood: []

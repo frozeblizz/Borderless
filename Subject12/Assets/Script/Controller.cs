@@ -10,7 +10,9 @@ public class Controller : MonoBehaviour
     public int moveSpeed = 30;
     private bool onetime = false;
     private bool pos = false;
-   
+
+    public static bool left;
+    public static bool right;
 
     public PlayerController playerController;
     public Controller Control;
@@ -50,7 +52,9 @@ public class Controller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            
+            right = false;
+            left = true;
+
             rigid.AddForce(new Vector2(-moveSpeed, 0));
            
             if(this.transform.localScale.x > 0)
@@ -63,7 +67,8 @@ public class Controller : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            
+            left = false;
+            right = true;
             rigid.AddForce(new Vector2(moveSpeed, 0));
             
             if (this.transform.localScale.x < 0)

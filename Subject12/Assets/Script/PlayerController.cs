@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
                     ps.enableEmission = false;
                 }
                 hitWith.gameObject.tag = "Player";
+                
 
             }
             
