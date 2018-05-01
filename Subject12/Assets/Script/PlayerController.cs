@@ -114,11 +114,11 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(GTFO(gameObject));
                     Controller.possessTime = 15;
                     hitWith.gameObject.GetComponent<EnemyPatrol>().enabled = false;
-                    if (this.gameObject.layer == 9)
+                    if (hitWith.gameObject.layer == 9)
                     {
                         hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", true);
                     }
-                    else if (this.gameObject.layer == 8)
+                    else if (hitWith.gameObject.layer == 8)
                     {
                         hitWith.gameObject.GetComponent<Animator>().SetBool("DRPosses", true);
                     }
