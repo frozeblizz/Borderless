@@ -23,9 +23,10 @@ public class AIBulletBehaviour : MonoBehaviour
             if (collision.gameObject.tag == "Player")
             {
                 Debug.Log("AI_Hit!!");
-                Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
-
                 collision.GetComponentInParent<DeadCon>().decreaseHP();
+                //Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
+
+                
                 Destroy(gameObject);
             }
         }
