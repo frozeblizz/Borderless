@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shooting : MonoBehaviour {
+public class Attack : MonoBehaviour {
 
     public GameObject[] blood;
 	public Rigidbody2D projectile;
@@ -35,8 +35,9 @@ public class shooting : MonoBehaviour {
             if(this.gameObject.layer == 8)
             {
                 this.GetComponentInParent<Animator>().SetBool("attack", true);
-                //StartCoroutine(delay());
+                StartCoroutine(delay());
                 Debug.Log("atk");
+               
             }
             if(this.gameObject.layer == 10)
             {
@@ -50,7 +51,7 @@ public class shooting : MonoBehaviour {
 
     IEnumerator delay()
     {
-        yield return new WaitForSeconds(5 * Time.deltaTime);
+        yield return new WaitForSeconds(1 * Time.deltaTime);
         this.GetComponentInParent<Animator>().SetBool("attack", false);
     }
     private void OnTriggerStay2D(Collider2D collision)

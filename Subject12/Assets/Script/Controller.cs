@@ -14,7 +14,7 @@ public class Controller : MonoBehaviour
 
     public PlayerController playerController;
     public Controller Control;
-    public shooting shoot;
+    public Attack shoot;
     
     public GameObject player;
     public GameObject bulletSpawn;

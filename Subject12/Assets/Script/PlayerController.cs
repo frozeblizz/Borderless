@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public PlayerController control;
 
     [HideInInspector]
-    public shooting shoot;
+    public Attack shoot;
 
     [HideInInspector]
     public GameObject cache;
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
                     isPossessed = true;
                     hitWith.gameObject.GetComponent<Controller>().enabled = true;
                    
-                    hitWith.gameObject.GetComponentInChildren<shooting>().enabled = true;
+                    hitWith.gameObject.GetComponentInChildren<Attack>().enabled = true;
                     sprite.enabled = false;
 
                     Controller.confuse = false;
@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
                     else if (hitWith.gameObject.layer == 8)
                     {
                         hitWith.gameObject.GetComponent<Animator>().Play("DRPosses", -1,0);
+                        
                     }
                     //hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", false);
                     anim.enabled = false;
