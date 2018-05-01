@@ -54,21 +54,10 @@ public class PlayerController : MonoBehaviour
         {
             rigid.AddForce(new Vector2(moveSpeed, 0));
         }
-        /*if (Input.GetKey(KeyCode.W))
-        {
 
-            rigid.AddForce(new Vector2(0, moveSpeed));
-
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-
-            rigid.AddForce(new Vector2(0, -moveSpeed));
-
-        }*/
         
 
-       // print(cache);
+        // print(cache);
         if (isPossessed == false)
        {
             //sprite.sprite = spritetemp;
@@ -90,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D hitWith)
     {
-        if (hitWith.gameObject.tag == "AI"|| hitWith.gameObject.tag == "AI DR")
+        if (hitWith.gameObject.tag == "AI")
         {
             if (control.enabled == false) return;
             if (Input.GetKeyDown(KeyCode.E))
@@ -104,7 +93,7 @@ public class PlayerController : MonoBehaviour
                     hitWith.gameObject.GetComponentInChildren<Attack>().enabled = true;
                     sprite.enabled = false;
 
-                    Controller.confuse = false;
+                    HazmatDetect.detect = false;
 
                     player.transform.SetParent(hitWith.transform);
                     control.enabled = false;
@@ -120,8 +109,12 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (hitWith.gameObject.layer == 8)
                     {
-                        hitWith.gameObject.GetComponent<Animator>().Play("DRPosses", -1,0);
-                        
+                        hitWith.gameObject.GetComponent<Animator>().Play("DRPosses", -1, 0);
+
+                    }
+                    else if (hitWith.gameObject.layer == 10)
+                    {
+                        hitWith.gameObject.GetComponent<Animator>().Play("HZPosses", -1, 0);
                     }
                     //hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", false);
                     anim.enabled = false;
