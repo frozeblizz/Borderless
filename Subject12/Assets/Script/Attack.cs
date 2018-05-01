@@ -41,6 +41,7 @@ public class Attack : MonoBehaviour {
             }
             if(this.gameObject.layer == 10)
             {
+                this.GetComponentInParent<Animator>().SetBool("attack", true);
                 StartCoroutine(delay());
                 Debug.Log("atk");
             }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-
+    public GameObject player;
     public float speed;
     private float stop;
     private float near;
@@ -16,10 +16,12 @@ public class EnemyPatrol : MonoBehaviour
     public int shootingRange;
     bool delay = false;
     float delaytime = 1;
-
+   
     // Use this for initialization
     void Start()
     {
+       
+        player = GameObject.FindGameObjectWithTag("Soul");
         near = Random.Range(2, 5);
         stop = Random.Range(2, 5);
     }
@@ -74,7 +76,8 @@ public class EnemyPatrol : MonoBehaviour
             this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             isleftnaja = false;
         }
-            
+
+        
     }
 
 }
