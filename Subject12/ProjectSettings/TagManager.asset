@@ -12,6 +12,7 @@ TagManager:
   - Walkway
   - wall
   - Soul
+  - AI Doc
   layers:
   - Default
   - TransparentFX

@@ -7,9 +7,7 @@ public class Controller : MonoBehaviour
 {
     public static float possessTime = 15;
     public float delayt = 0.3f;
-    public float hp = 10;
     public int moveSpeed = 30;
-    public int direction;
     private bool onetime = false;
     private bool pos = false;
     public static bool confuse = false;
@@ -52,7 +50,7 @@ public class Controller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            direction = 0;
+            
             rigid.AddForce(new Vector2(-moveSpeed, 0));
            /* anim.SetBool("Left", true); //set left animation to true
             anim.SetBool("Right", false);//set right animation to false*/
@@ -67,7 +65,7 @@ public class Controller : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            direction = 1;
+            
             rigid.AddForce(new Vector2(moveSpeed, 0));
             /*   anim.SetBool("Right", true);
                anim.SetBool("Posses", false);
@@ -93,6 +91,7 @@ public class Controller : MonoBehaviour
                 this.gameObject.tag = "AI";
                 print("die");
                 playerController.cache.SetActive(true);
+                anim.Play("unPosses",-1,0);
                 Control.enabled = false;
                 player.transform.SetParent(null);
                 player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
@@ -115,7 +114,7 @@ public class Controller : MonoBehaviour
                 playerAnim.enabled = true;
                 playerParticle.enableEmission = true;
                 playerAnim.Play("Ex", -1, 0);
-                anim.SetBool("unPosses", true);
+                
                 confuse = true;
             }
             if (confuse == true)

@@ -7,7 +7,7 @@ public class DeadCon : MonoBehaviour {
    // public int hp = 10;
     //public Sprite DEAD;
     Animator anim;
-    int hp = 10;
+    public int hp = 10;
     float delayt = 0.3f;
     bool die = false;
 

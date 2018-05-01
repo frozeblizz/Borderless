@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D hitWith)
     {
-        if (hitWith.gameObject.tag == "AI")
+        if (hitWith.gameObject.tag == "AI"|| hitWith.gameObject.tag == "AI DR")
         {
             if (control.enabled == false) return;
             if (Input.GetKeyDown(KeyCode.E))
@@ -114,7 +114,14 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(GTFO(gameObject));
                     Controller.possessTime = 15;
                     hitWith.gameObject.GetComponent<EnemyPatrol>().enabled = false;
-                    hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", true);
+                    if (this.gameObject.layer == 9)
+                    {
+                        hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", true);
+                    }
+                    else if (this.gameObject.layer == 8)
+                    {
+                        hitWith.gameObject.GetComponent<Animator>().SetBool("DRPosses", true);
+                    }
                     //hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", false);
                     anim.enabled = false;
                     ps.enableEmission = false;
