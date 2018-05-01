@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    public PlayerController playerController;
+    public GameObject player;
     public float speed;
     private float stop;
     private float near;
@@ -16,11 +16,12 @@ public class EnemyPatrol : MonoBehaviour
     public int shootingRange;
     bool delay = false;
     float delaytime = 1;
-
+   
     // Use this for initialization
     void Start()
     {
-        playerController = GameObject.FindGameObjectWithTag("Soul").GetComponent<PlayerController>();
+       
+        player = GameObject.FindGameObjectWithTag("Soul");
         near = Random.Range(2, 5);
         stop = Random.Range(2, 5);
     }
@@ -76,21 +77,7 @@ public class EnemyPatrol : MonoBehaviour
             isleftnaja = false;
         }
 
-        if (Controller.confuse == true)
-        {
-            if (this.gameObject.layer == 10)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, 2 * Time.deltaTime);
-            }
-            else
-            {
-
-                Debug.Log("confuse");
-               // rigid.velocity = new Vector2(0, 0);
-            }
-
-
-        }
+        
     }
 
 }

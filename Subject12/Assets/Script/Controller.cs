@@ -10,7 +10,7 @@ public class Controller : MonoBehaviour
     public int moveSpeed = 30;
     private bool onetime = false;
     private bool pos = false;
-    public static bool confuse = false;
+   
 
     public PlayerController playerController;
     public Controller Control;
@@ -89,8 +89,13 @@ public class Controller : MonoBehaviour
                 {
                     anim.Play("DRunPosses", -1, 0);
                 }
+                else if (this.gameObject.layer == 10)
+                {
+                    anim.Play("HZunPosses", -1, 0);
+                }
+
+                HazmatDetect.detect = true;
                 
-                Control.enabled = false;
                 player.transform.SetParent(null);
                 player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                
@@ -105,24 +110,10 @@ public class Controller : MonoBehaviour
                 playerAnim.enabled = true;
                 playerParticle.enableEmission = true;
                 playerAnim.Play("Ex", -1, 0);
+                Control.enabled = false;
                 
-                confuse = true;
             }
-            //if (confuse == true)
-            //{
-            //    if (this.gameObject.layer == 10)
-            //    {
-            //        transform.position = Vector2.MoveTowards(transform.position, playerController.transform.position, 2 * Time.deltaTime);
-            //    }
-            //    else
-            //    {
-
-            //        Debug.Log("confuse");
-            //        rigid.velocity = new Vector2(0, 0);
-            //    }
-
-
-            //}
+           
             if (anim.GetBool("Dead") && pos)
             {
                 gameOver.SetActive(true);
