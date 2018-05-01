@@ -80,7 +80,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             if (this.gameObject.layer == 10)
             {
-                transform.position = Vector2.MoveTowards(transform.position, playerController.transform.position, 2 * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, 2 * Time.deltaTime);
             }
             else
             {
