@@ -91,7 +91,15 @@ public class Controller : MonoBehaviour
                 this.gameObject.tag = "AI";
                 print("die");
                 playerController.cache.SetActive(true);
-                anim.Play("unPosses",-1,0);
+                if (this.gameObject.layer == 9)
+                {
+                    anim.Play("unPosses", -1, 0);
+                }
+                else if (this.gameObject.layer == 8)
+                {
+                    anim.Play("DRunPosses", -1, 0);
+                }
+                
                 Control.enabled = false;
                 player.transform.SetParent(null);
                 player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
