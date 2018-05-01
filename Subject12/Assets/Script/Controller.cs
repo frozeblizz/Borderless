@@ -112,14 +112,15 @@ public class Controller : MonoBehaviour
             {
                 if (this.gameObject.layer == 10)
                 {
-                    rigid.velocity = new Vector2(2, 0);
+                    transform.position = Vector2.MoveTowards(transform.position, playerController.transform.position, 2 * Time.deltaTime);
                 }
                 else
                 {
+
                     Debug.Log("confuse");
                     rigid.velocity = new Vector2(0, 0);
                 }
-                
+
 
             }
             if (anim.GetBool("Dead") && pos)

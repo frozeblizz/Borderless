@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-
+    public PlayerController playerController;
     public float speed;
     private float stop;
     private float near;
@@ -20,6 +20,7 @@ public class EnemyPatrol : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        playerController = GameObject.FindGameObjectWithTag("Soul").GetComponent<PlayerController>();
         near = Random.Range(2, 5);
         stop = Random.Range(2, 5);
     }
@@ -74,7 +75,22 @@ public class EnemyPatrol : MonoBehaviour
             this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             isleftnaja = false;
         }
-            
+
+        if (Controller.confuse == true)
+        {
+            if (this.gameObject.layer == 10)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, playerController.transform.position, 2 * Time.deltaTime);
+            }
+            else
+            {
+
+                Debug.Log("confuse");
+               // rigid.velocity = new Vector2(0, 0);
+            }
+
+
+        }
     }
 
 }

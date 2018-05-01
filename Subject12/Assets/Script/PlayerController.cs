@@ -54,21 +54,10 @@ public class PlayerController : MonoBehaviour
         {
             rigid.AddForce(new Vector2(moveSpeed, 0));
         }
-        /*if (Input.GetKey(KeyCode.W))
-        {
 
-            rigid.AddForce(new Vector2(0, moveSpeed));
-
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-
-            rigid.AddForce(new Vector2(0, -moveSpeed));
-
-        }*/
         
 
-       // print(cache);
+        // print(cache);
         if (isPossessed == false)
        {
             //sprite.sprite = spritetemp;
