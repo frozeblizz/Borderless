@@ -25,7 +25,6 @@ public class ButtonBehaviour : MonoBehaviour {
         if(Scene == "Prototype")
         {
             SceneManager.LoadScene("Prototype");
-            Time.timeScale = 1;
         }
         if(Scene == "Quit")
         {

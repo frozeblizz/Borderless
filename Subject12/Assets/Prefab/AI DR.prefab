@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1270863983010578
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225265047328620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.14, y: -2.1, z: 0}
+  m_LocalPosition: {x: 14.86, y: -2.1, z: 0}
   m_LocalScale: {x: 0.69123274, y: 0.7804399, z: 2.2140977}
   m_Children:
   - {fileID: 4000071040391410}
@@ -245,6 +245,7 @@ MonoBehaviour:
     type: 2}
   speed: 20
   fireRate: 0.25
+  Controller: {fileID: 0}
   bulletSpawn: {fileID: 0}
 --- !u!114 &114279705739868546
 MonoBehaviour:
@@ -257,11 +258,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e6c35c63505264ea6138b88ddfaee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   speed: 1.5
   isleftnaja: 0
   bulletSpawn: {fileID: 0}
   projectile: {fileID: 0}
-  soul: {fileID: 0}
   shootingRange: 5
 --- !u!114 &114675472916382520
 MonoBehaviour:
@@ -275,7 +276,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
-  gameOver: {fileID: 0}
 --- !u!114 &114780583594252772
 MonoBehaviour:
   m_ObjectHideFlags: 1

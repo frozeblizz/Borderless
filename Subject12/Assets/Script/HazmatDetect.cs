@@ -8,11 +8,9 @@ public class HazmatDetect : MonoBehaviour {
     private Transform player;
     public int range;
     public GameObject Player;
-    public GameObject gameOver;
 	// Use this for initialization
 	void Start ()
     {
-        gameOver.SetActive(false);
         detect = true;
         player =  GameObject.FindGameObjectWithTag("Soul").GetComponent<Transform>();
     }
@@ -59,17 +57,9 @@ public class HazmatDetect : MonoBehaviour {
         {
             if (collision.gameObject.tag == "Soul"&&PlayerController.isPossessed == false)
             {
-                Destroy(collision.gameObject);
-                Time.timeScale = 0;
                 Debug.Log("HZHit!!");
-                StartCoroutine(waitOneFrame());
-                gameOver.SetActive(true);
+                Destroy(Player);
             }
         }
-    }
-    IEnumerator waitOneFrame()
-    {
-        yield return null;
-
     }
 }
