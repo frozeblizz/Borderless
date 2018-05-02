@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4901548810081148}
   - component: {fileID: 33534491311614468}
   - component: {fileID: 23877061574031194}
-  - component: {fileID: 114216092670021610}
   - component: {fileID: 50985710684723780}
+  - component: {fileID: 114578390049676674}
   - component: {fileID: 61274714374132962}
   m_Layer: 0
   m_Name: Bullet
@@ -130,7 +130,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114216092670021610
+--- !u!114 &114578390049676674
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -138,17 +138,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1627843174850254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f1f0193b0ac8404b905fe6ae84c3356, type: 3}
+  m_Script: {fileID: 11500000, guid: e5693436e54a09f458d5a6300ffbcbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blood:
-  - {fileID: 1436778462787666, guid: bc7589c00d6861e4291543a454c93b3f, type: 2}
-  - {fileID: 1980681040803380, guid: dbd37a75725c8c246b131007124a96fc, type: 2}
-  - {fileID: 1408986675772018, guid: e65037c9db82da940993c774a4114728, type: 2}
-  - {fileID: 1132863116580742, guid: d43c9ab8876bdae4899b1da0268d2202, type: 2}
-  - {fileID: 1217755715153444, guid: fc50f09e59174fe43b3f9af627ec4741, type: 2}
-  - {fileID: 1863877477349476, guid: 5c30ae60af613094e8fb53d10b135208, type: 2}
-  - {fileID: 1561169806190746, guid: d2118115d1cf4ff41bef99f4055c7806, type: 2}
-  - {fileID: 1951082656318054, guid: bec0f260e934cba41b562be8c97016f3, type: 2}
-  - {fileID: 1731766450528692, guid: 94ae9264b61ff734dbaf6fa0c00994a2, type: 2}
-  - {fileID: 1023629286261254, guid: 171e5b9f69322a647be648d9556348c7, type: 2}
+  - {fileID: 1403385573023056, guid: cb37d0c000011ee4680be34308aa3f4d, type: 2}
