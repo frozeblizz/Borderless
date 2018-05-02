@@ -16,7 +16,7 @@ public class UpgradeTrigger : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if(ScoreBehaviour.scorepoint >= 1500 && isTrigger == false)
+		if(ScoreBehaviour.scorepoint >= 1500 || (ScoreBehaviour.scorepoint >= 3000 && ScoreBehaviour.scorepoint <= 3200 )&& isTrigger == false)
         {
             
             upgradeMenu.SetActive(true);

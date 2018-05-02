@@ -19,10 +19,17 @@ public class DeadCon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (hp <= 0)
+        if (hp == 0)
         {
             Debug.Log("die");
             Dead();
+            hp = -1;
+            if (this.gameObject.layer == 8) //DR kill score
+                ScoreBehaviour.scorepoint += 100;
+            if (this.gameObject.layer == 9) //SD kill score
+                ScoreBehaviour.scorepoint += 150;
+            if (this.gameObject.layer == 10) //HZ kill score
+                ScoreBehaviour.scorepoint += 200;
         }
         if(die)
         {
@@ -43,6 +50,8 @@ public class DeadCon : MonoBehaviour {
         this.GetComponent<EnemyPatrol>().enabled = false;
         this.GetComponent<Controller>().enabled = false;
         
+
+
         //this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
     public void decreaseHP()

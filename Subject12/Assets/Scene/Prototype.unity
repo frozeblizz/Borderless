@@ -835,15 +835,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 114675472916382520, guid: 9da314624d579f749b1689c744e61882,
-        type: 2}
-      propertyPath: hp
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225265047328620, guid: 9da314624d579f749b1689c744e61882, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9da314624d579f749b1689c744e61882, type: 2}
   m_IsPrefabParent: 0
@@ -1110,52 +1101,6 @@ MonoBehaviour:
   speed: 90
   projectile: {fileID: 0}
   spawnRate: 5
---- !u!1001 &932159057
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4092386526676658, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 20.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092386526676658, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092386526676658, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092386526676658, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092386526676658, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092386526676658, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092386526676658, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4092386526676658, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
-      propertyPath: m_RootOrder
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973924798653772, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
-      propertyPath: m_Name
-      value: AI HAZMAT (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &997957807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,12 +1203,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1225265047328620, guid: 9da314624d579f749b1689c744e61882, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114675472916382520, guid: 9da314624d579f749b1689c744e61882,
         type: 2}
       propertyPath: hp
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9da314624d579f749b1689c744e61882, type: 2}
@@ -1780,7 +1725,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4092386526676658, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.44
+      value: 5.48
       objectReference: {fileID: 0}
     - target: {fileID: 4092386526676658, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1855,10 +1800,6 @@ Prefab:
     - target: {fileID: 1430017969449726, guid: e370becdf88f1f241ba0bdc724f7d1f4, type: 2}
       propertyPath: m_Name
       value: AI Soldier (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1430017969449726, guid: e370becdf88f1f241ba0bdc724f7d1f4, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e370becdf88f1f241ba0bdc724f7d1f4, type: 2}
