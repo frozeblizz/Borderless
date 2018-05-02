@@ -10,10 +10,12 @@ public class DeadCon : MonoBehaviour {
     public int hp;
     float delayt = 0.3f;
     bool die = false;
+    public GameObject gameOver;
 
     // Use this for initialization
     void Start ()
     {
+        gameOver.SetActive(false);
         anim = GetComponent<Animator>();
     }
 	
@@ -23,6 +25,10 @@ public class DeadCon : MonoBehaviour {
         {
             Debug.Log("die");
             Dead();
+            if(gameObject.tag == "Player")
+            {
+                gameOver.SetActive(true);
+            }
         }
         if(die)
         {
@@ -42,6 +48,19 @@ public class DeadCon : MonoBehaviour {
         transform.Find("Body").gameObject.SetActive(false);
         this.GetComponent<EnemyPatrol>().enabled = false;
         this.GetComponent<Controller>().enabled = false;
+        if(gameObject.layer == 8) //DR kill
+        {
+            ScoreBehaviour.scorepoint += 100;
+        }
+        else if (gameObject.layer == 9) // SD kill
+        {
+            ScoreBehaviour.scorepoint += 150;
+        }
+        else if(gameObject.layer == 10) // HZ kill
+        {
+            ScoreBehaviour.scorepoint += 200;
+        }
+        
         
         //this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
@@ -51,7 +70,9 @@ public class DeadCon : MonoBehaviour {
         if(hp <= 0)
         {
             Dead();
+            
         }
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -72,4 +93,8 @@ public class DeadCon : MonoBehaviour {
             hp -= 1;
         }
     }*/
+    IEnumerator waitForFrame()
+    {
+        yield return null;
+    }
 }
