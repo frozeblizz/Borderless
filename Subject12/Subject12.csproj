@@ -78,9 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AIBulletBehaviour.cs" />
     <Compile Include="Assets\Script\Attack.cs" />
-    <Compile Include="Assets\Script\BulletBehaviour.cs" />
     <Compile Include="Assets\Script\ButtonBehaviour.cs" />
     <Compile Include="Assets\Script\CameraFollow.cs" />
     <Compile Include="Assets\Script\Controller.cs" />

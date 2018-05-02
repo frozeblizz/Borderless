@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public static bool isPossessed = false;
     public Animator anim;
     public ParticleSystem ps;
+    public AudioClip Posses;
+    public AudioSource audioSource;
     
     private Rigidbody2D rigid;
     [HideInInspector]
@@ -87,6 +89,7 @@ public class PlayerController : MonoBehaviour
                 //print(Vector3.Distance(transform.position, hitWith.transform.position));
                 if (Vector3.Distance(transform.position, hitWith.transform.position) <= 0.5f)
                 {
+                    audioSource.PlayOneShot(Posses);
                     isPossessed = true;
                     hitWith.gameObject.GetComponent<Controller>().enabled = true;
                    
@@ -110,7 +113,6 @@ public class PlayerController : MonoBehaviour
                     else if (hitWith.gameObject.layer == 8)
                     {
                         hitWith.gameObject.GetComponent<Animator>().Play("DRPosses", -1, 0);
-
                     }
                     else if (hitWith.gameObject.layer == 10)
                     {
