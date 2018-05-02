@@ -20,7 +20,7 @@ public class EnemySpawn : MonoBehaviour {
     {
         while (true)
         {
-            random = Random.Range(0, 1);
+            random = Random.Range(0, enemySpawn.Length);
             //Debug.Log("Kuay hill");
             /*Rigidbody2D instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as
             Rigidbody2D;*/
