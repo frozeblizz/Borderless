@@ -7,6 +7,7 @@ public class HazmatDetect : MonoBehaviour {
     public static bool detect;
     private Transform player;
     public int range;
+    public GameObject Player;
 	// Use this for initialization
 	void Start ()
     {
@@ -48,6 +49,17 @@ public class HazmatDetect : MonoBehaviour {
         {
             this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             
+        }
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        {
+            if (collision.gameObject.tag == "Soul"&&PlayerController.isPossessed == false)
+            {
+                Debug.Log("HZHit!!");
+                Destroy(Player);
+            }
         }
     }
 }
