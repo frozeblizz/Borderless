@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    public GameObject player;
+   
     public float speed;
     private float stop;
     private float near;
     private Transform target;
+    private Transform player;
     public bool isleftnaja = false;
     //public Sprite right;
     public GameObject bulletSpawn;
     public Rigidbody2D projectile;
+    public Rigidbody2D soul;
     public int shootingRange;
     bool delay = false;
     float delaytime = 1;
@@ -20,8 +22,8 @@ public class EnemyPatrol : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-       
-        player = GameObject.FindGameObjectWithTag("Soul");
+        soul = GameObject.FindGameObjectWithTag("Soul").GetComponent<Rigidbody2D>();
+
         near = 5;
         stop = 5;
     }
@@ -29,7 +31,7 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        player = GameObject.FindGameObjectWithTag("Soul").GetComponent<Transform>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         if (Vector2.Distance(transform.position, target.position) < near)
         {
@@ -51,22 +53,20 @@ public class EnemyPatrol : MonoBehaviour
             {
                 Rigidbody2D instantiatedProjectile = Instantiate(projectile, bulletSpawn.transform.position, bulletSpawn.transform.rotation) as
                 Rigidbody2D;
-                if(target.transform.position.x < this.transform.position.x)
+                if (target.transform.position.x < this.transform.position.x)
                 {
-                    instantiatedProjectile.velocity = new Vector2(-20 , 0);
+                    instantiatedProjectile.velocity = new Vector2(-20, 0);
                 }
                 else if (target.transform.position.x > this.transform.position.x)
                 {
-                    instantiatedProjectile.velocity = new Vector2(20 , 0);
+                    instantiatedProjectile.velocity = new Vector2(20, 0);
                 }
-
-                
-
 
                 delaytime = 1;
                 delay = true;
             }
         }
+        
         if(delay)
         {
             delaytime -= Time.deltaTime;

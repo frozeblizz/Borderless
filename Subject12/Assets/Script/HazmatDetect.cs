@@ -6,7 +6,7 @@ public class HazmatDetect : MonoBehaviour {
 
     public static bool detect;
     private Transform player;
-
+    public int range;
 	// Use this for initialization
 	void Start ()
     {
@@ -19,7 +19,35 @@ public class HazmatDetect : MonoBehaviour {
     {
 		if(detect == true)
         {
-            this.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 2 * Time.deltaTime);
+            if (Vector2.Distance(player.position, this.transform.position) < range)
+            {
+                if(player.position.x < this.transform.position.x)
+                {
+                    this.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 0 * Time.deltaTime);
+                    player.GetComponent<Rigidbody2D>().AddForce(new Vector2(10, 0));
+                }
+                else
+                {
+                    this.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 0 * Time.deltaTime);
+                    player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0));
+                }
+                
+            }
+            else
+            {
+                this.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 2 * Time.deltaTime); 
+            }
+            
         }
-	}
+        if (player.position.x < transform.position.x && this.transform.localScale.x > 0)
+        {
+            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+           
+        }
+        else if (player.position.x >= transform.position.x && this.transform.localScale.x < 0)
+        {
+            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            
+        }
+    }
 }

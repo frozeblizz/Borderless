@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691b6ab8f4cd45a43b14adc3b57235a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 100
 --- !u!114 &114285147764584456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,11 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e6c35c63505264ea6138b88ddfaee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   speed: 1.5
   isleftnaja: 0
   bulletSpawn: {fileID: 0}
   projectile: {fileID: 0}
+  soul: {fileID: 0}
   shootingRange: 5
 --- !u!114 &114531879623494366
 MonoBehaviour:
@@ -275,7 +275,6 @@ MonoBehaviour:
     type: 2}
   speed: 20
   fireRate: 0.25
-  Controller: {fileID: 0}
   bulletSpawn: {fileID: 0}
 --- !u!114 &114532074658617246
 MonoBehaviour:
@@ -312,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d135e2a36e3f2c4cbd1a358bddf1e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 2
 --- !u!212 &212508516995098164
 SpriteRenderer:
   m_ObjectHideFlags: 1
