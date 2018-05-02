@@ -21,8 +21,22 @@ public class DeadCon : MonoBehaviour {
 	void Update () {
         if (hp <= 0)
         {
+            hp = -1;
             Debug.Log("die");
             Dead();
+            if(this.gameObject.layer == 8)
+            {
+                ScoreBehaviour.scorepoint += 100;
+            }
+            if (this.gameObject.layer == 9)
+            {
+                ScoreBehaviour.scorepoint += 150;
+            }
+            if (this.gameObject.layer == 10)
+            {
+                HazmatDetect.detect = false;
+                ScoreBehaviour.scorepoint += 200;
+            }
         }
         if(die)
         {

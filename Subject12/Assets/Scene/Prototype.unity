@@ -2155,7 +2155,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1860891701
+  randomSeed: 69767257
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5592,7 +5592,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   ps: {fileID: 0}
   Posses: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 82495963010115856, guid: a5318cf09e6ab7e4b8bf6539f37c3407,
+    type: 2}
   sprite: {fileID: 0}
   control: {fileID: 0}
   shoot: {fileID: 0}
