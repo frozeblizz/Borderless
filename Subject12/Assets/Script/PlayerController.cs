@@ -1,27 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    
-    public int moveSpeed = 30;
-    public static float wanderTime = 5;
-    public static bool isPossessed = false;
+
+    public int moveSpeed;
+    public static float wanderTime;
     public Animator anim;
-    public ParticleSystem ps;
-    public AudioClip Posses;
+    public ParticleSystem particle;
+    public AudioClip PossesAudio;
     public AudioSource audioSource;
-    
+
     private Rigidbody2D rigid;
     [HideInInspector]
-    public SpriteRenderer sprite;
+    public SpriteRenderer spriteRenderer;
 
     [HideInInspector]
     public PlayerController control;
 
-    [HideInInspector]
-    public Attack shoot;
 
     [HideInInspector]
     public GameObject cache;
@@ -29,20 +27,21 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public Sprite spritetemp;
 
-    public GameObject player;
-    public GameObject gameOver;
 
+    public GameObject player;
+    public State state;
     bool onetime = true;
     // Use this for initialization
     void Start()
     {
         control = GetComponent<PlayerController>();
         rigid = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        ps = GetComponent<ParticleSystem>();
-        gameOver.SetActive(false);
-       // spritetemp = sprite.sprite;
+        particle = GetComponent<ParticleSystem>();
+
+        wanderTime = 5;
+        moveSpeed = 30;
     }
 
     // Update is called once per frame
@@ -57,31 +56,31 @@ public class PlayerController : MonoBehaviour
             rigid.AddForce(new Vector2(moveSpeed, 0));
         }
 
-        
+
 
         // print(cache);
-        if (isPossessed == false)
-       {
+        if (State.isPossessed == false)
+        {
             //sprite.sprite = spritetemp;
             wanderTime -= 1 * Time.deltaTime;
-            if(onetime)
+            if (onetime)
             {
                 StartCoroutine(Kapip());
                 onetime = false;
             }
-            
+
         }
-       if(wanderTime <= 0)
-       {
-            Destroy(gameObject);
-            gameOver.SetActive(true);
+        if (wanderTime <= 0)
+        {
+            gameObject.SetActive(false);
+            state.GameOver();
             Time.timeScale = 0;
-       }
+        }
     }
 
     private void OnTriggerStay2D(Collider2D hitWith)
     {
-        if (hitWith.gameObject.tag == "AI")
+        if (hitWith.gameObject.tag == "AI" && State.isPossessed == false)
         {
             if (control.enabled == false) return;
             if (Input.GetKeyDown(KeyCode.E))
@@ -89,15 +88,12 @@ public class PlayerController : MonoBehaviour
                 //print(Vector3.Distance(transform.position, hitWith.transform.position));
                 if (Vector3.Distance(transform.position, hitWith.transform.position) <= 0.5f)
                 {
-                    audioSource.PlayOneShot(Posses);
-                    isPossessed = true;
+                    audioSource.PlayOneShot(PossesAudio);
+                    State.isPossessed = true;
                     hitWith.gameObject.GetComponent<Controller>().enabled = true;
-                   
                     hitWith.gameObject.GetComponentInChildren<Attack>().enabled = true;
-                    sprite.enabled = false;
-
+                    spriteRenderer.enabled = false;
                     HazmatDetect.detect = false;
-
                     player.transform.SetParent(hitWith.transform);
                     control.enabled = false;
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
@@ -120,17 +116,17 @@ public class PlayerController : MonoBehaviour
                     }
                     //hitWith.gameObject.GetComponent<Animator>().SetBool("Posses", false);
                     anim.enabled = false;
-                    ps.enableEmission = false;
+                    particle.enableEmission = false;
                 }
                 hitWith.gameObject.tag = "Player";
-                
+
 
             }
-            
+
         }
 
     }
-
+    
     IEnumerator GTFO(GameObject player)
     {
         yield return null;

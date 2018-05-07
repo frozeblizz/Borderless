@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class Controller : MonoBehaviour
@@ -8,36 +9,38 @@ public class Controller : MonoBehaviour
     public static float possessTime = 15;
     public float delayt = 0.3f;
     public int moveSpeed = 30;
+
+
     private bool onetime = false;
-    private bool pos = false;
 
     public static bool left;
     public static bool right;
 
     public PlayerController playerController;
     public Controller Control;
-    public Attack shoot;
+    
     
     public GameObject player;
     public GameObject bulletSpawn;
-    private GameObject cachePlayer;
-    public GameObject gameOver;
 
-    public SpriteRenderer sprite;
+    public State state;
+   
+
+    public SpriteRenderer spriteRenderer;
     public Animator anim;
     public Animator playerAnim;
     private Sprite spritetemp;
-    public Sprite Soilder_DEAD;
+    
     public ParticleSystem playerParticle;
 
     void Start()
     {
+        state = GameObject.Find("State").GetComponent<State>();
         anim = GetComponent<Animator>();
         playerController = GameObject.FindGameObjectWithTag("Soul").GetComponent<PlayerController>();
-        sprite = GetComponent<SpriteRenderer>();
-        spritetemp = sprite.sprite;
-        
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spritetemp = spriteRenderer.sprite;
+             
     }
 
     private void Awake()
@@ -83,49 +86,19 @@ public class Controller : MonoBehaviour
             //Debug.Log("not null");
             if (Input.GetKeyDown(KeyCode.E))
             {
-                this.gameObject.tag = "AI";
                 print("die");
-                playerController.cache.SetActive(true);
-                if (this.gameObject.layer == 9)
-                {
-                    anim.Play("unPosses", -1, 0);
-                }
-                else if (this.gameObject.layer == 8)
-                {
-                    anim.Play("DRunPosses", -1, 0);
-                }
-                else if (this.gameObject.layer == 10)
-                {
-                    anim.Play("HZunPosses", -1, 0);
-                }
-
+                unPosses();             
                 HazmatDetect.detect = true;
-                
-                player.transform.SetParent(null);
-                player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-               
-                playerController.cache = null;
-                StartCoroutine(delaySprite());
-                
-                StartCoroutine(getOut());
-                this.GetComponent<DeadCon>().Dead();
-                bulletSpawn.SetActive(false);
-                PlayerController.wanderTime = 5;
-                PlayerController.isPossessed = false;
-                playerAnim.enabled = true;
-                playerParticle.enableEmission = true;
-                playerAnim.Play("Ex", -1, 0);
-                Control.enabled = false;
-                
+ 
             }
            
-            if (anim.GetBool("Dead") && pos)
+            if (anim.GetBool("Dead") && State.isPossessed == true)
             {
-                gameOver.SetActive(true);
+                state.GameOver();
             }
         }
         
-        if (PlayerController.isPossessed == true)
+        if (State.isPossessed == true)
         {
             possessTime -= 1 * Time.deltaTime;
             if (onetime)
@@ -137,24 +110,47 @@ public class Controller : MonoBehaviour
         if (possessTime <= 0)
         {
             this.GetComponent<DeadCon>().Dead();
-            gameOver.SetActive(true);
+            state.GameOver();
         }
+    }
+
+
+   private void unPosses()
+    {
+        if (this.gameObject.layer == 9)
+        {
+            anim.Play("unPosses", -1, 0);
+        }
+        else if (this.gameObject.layer == 8)
+        {
+            anim.Play("DRunPosses", -1, 0);
+        }
+        else if (this.gameObject.layer == 10)
+        {
+            anim.Play("HZunPosses", -1, 0);
+        }
+        this.gameObject.tag = "AI";
+        playerController.cache.SetActive(true);
+        player.transform.SetParent(null);
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+
+        playerController.cache = null;
+        StartCoroutine(delaySprite());
+
+        StartCoroutine(getOut());
+        this.GetComponent<DeadCon>().Dead();
+        bulletSpawn.SetActive(false);
+        PlayerController.wanderTime = 5;
+        State.isPossessed = false;
+        State.isDetected = true;
+        playerAnim.enabled = true;
+        playerParticle.enableEmission = true;
+        playerAnim.Play("Ex", -1, 0);
+        Control.enabled = false;
     }
 
 
    
-
-
-    private void OnCollisionStay2D(Collision2D hitWith)
-    {
-        if (hitWith.gameObject.tag == "Power")
-        {
-            this.GetComponent<DeadCon>().Dead();
-
-            
-        }
-
-    }
 
     IEnumerator getOut()
     {
@@ -166,10 +162,10 @@ public class Controller : MonoBehaviour
         while (true)
         {
             //yield return new WaitForSeconds(time);
-            sprite.sprite = spritetemp;
+            spriteRenderer.sprite = spritetemp;
             yield return new WaitForSeconds(possessTime * Time.deltaTime);
             //  Debug.Log("fuck");
-            sprite.sprite = null;
+            spriteRenderer.sprite = null;
             yield return new WaitForSeconds(possessTime * Time.deltaTime);
         }
 
@@ -177,6 +173,6 @@ public class Controller : MonoBehaviour
     IEnumerator delaySprite()
     {
         yield return new WaitForSeconds(0.15f);
-        playerController.sprite.enabled = true;
+        playerController.spriteRenderer.enabled = true;
     }
 }

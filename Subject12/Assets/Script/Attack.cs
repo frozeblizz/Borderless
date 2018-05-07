@@ -10,22 +10,27 @@ public class Attack : MonoBehaviour {
     public float fireRate;
     private float nextFire;
     
-    Controller c;
-    public GameObject bulletSpawn;
+
+   
     Rigidbody2D instantiatedProjectile;
 
     void Start()
     {
-        c = GetComponentInParent<Controller>();
-        bulletSpawn = this.gameObject;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space)&& Time.time > nextFire)
+        if (Input.GetKey(KeyCode.Space) && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
+            Attacking();
+        }
+    }
+
+    public void Attacking()
+    {
             if (this.gameObject.layer == 9)
             {
                 instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as
@@ -33,30 +38,29 @@ public class Attack : MonoBehaviour {
 
                 if (Controller.right == true)
                 {
-                    instantiatedProjectile.velocity = new Vector3(20,0,0);
+                    instantiatedProjectile.velocity = new Vector3(20, 0, 0);
                 }
                 else if (Controller.left == true)
                 {
                     instantiatedProjectile.velocity = new Vector3(-20, 0, 0);
                 }
-                
-            }
-            if(this.gameObject.layer == 8)
-            {
-                this.GetComponentInParent<Animator>().SetBool("attack", true);
-                StartCoroutine(delay());
-                Debug.Log("atk");
-               
-            }
-            if(this.gameObject.layer == 10)
-            {
-                this.GetComponentInParent<Animator>().SetBool("attack", true);
-                StartCoroutine(delay());
-                Debug.Log("atk");
-            }
-           
-        }
 
+            }
+            if (this.gameObject.layer == 8)
+            {
+                this.GetComponentInParent<Animator>().SetBool("attack", true);
+                StartCoroutine(delay());
+                Debug.Log("atk");
+
+            }
+            if (this.gameObject.layer == 10)
+            {
+                this.GetComponentInParent<Animator>().SetBool("attack", true);
+                StartCoroutine(delay());
+                Debug.Log("atk");
+            }
+
+        
     }
 
     IEnumerator delay()

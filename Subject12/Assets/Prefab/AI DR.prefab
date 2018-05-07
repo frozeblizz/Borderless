@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1270863983010578
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225265047328620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.86, y: -2.1, z: 0}
+  m_LocalPosition: {x: 7.59, y: -2.1, z: 0}
   m_LocalScale: {x: 0.69123274, y: 0.7804399, z: 2.2140977}
   m_Children:
   - {fileID: 4000071040391410}
@@ -231,22 +231,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood:
-  - {fileID: 1436778462787666, guid: bc7589c00d6861e4291543a454c93b3f, type: 2}
-  - {fileID: 1980681040803380, guid: dbd37a75725c8c246b131007124a96fc, type: 2}
-  - {fileID: 1408986675772018, guid: e65037c9db82da940993c774a4114728, type: 2}
-  - {fileID: 1132863116580742, guid: d43c9ab8876bdae4899b1da0268d2202, type: 2}
-  - {fileID: 1217755715153444, guid: fc50f09e59174fe43b3f9af627ec4741, type: 2}
-  - {fileID: 1863877477349476, guid: 5c30ae60af613094e8fb53d10b135208, type: 2}
-  - {fileID: 1561169806190746, guid: d2118115d1cf4ff41bef99f4055c7806, type: 2}
-  - {fileID: 1951082656318054, guid: bec0f260e934cba41b562be8c97016f3, type: 2}
-  - {fileID: 1731766450528692, guid: 94ae9264b61ff734dbaf6fa0c00994a2, type: 2}
-  - {fileID: 1023629286261254, guid: 171e5b9f69322a647be648d9556348c7, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   projectile: {fileID: 50985710684723780, guid: 1971c836fd6b9c04e92fb7973ff4832d,
     type: 2}
   speed: 20
   fireRate: 0.25
-  Controller: {fileID: 0}
-  bulletSpawn: {fileID: 0}
 --- !u!114 &114279705739868546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,12 +256,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e6c35c63505264ea6138b88ddfaee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   speed: 1.5
   isleftnaja: 0
   bulletSpawn: {fileID: 0}
   projectile: {fileID: 0}
   shootingRange: 5
+  hazmatRange: 0
 --- !u!114 &114675472916382520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691b6ab8f4cd45a43b14adc3b57235a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 100
 --- !u!114 &114780583594252772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,15 +289,15 @@ MonoBehaviour:
   moveSpeed: 30
   playerController: {fileID: 0}
   Control: {fileID: 114780583594252772}
-  shoot: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 1773344208781870, guid: cb04b41414719a5488c8b259e4598f25, type: 2}
   bulletSpawn: {fileID: 1270863983010578}
-  gameOver: {fileID: 0}
-  sprite: {fileID: 0}
+  state: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   anim: {fileID: 95100549746135734}
-  playerAnim: {fileID: 0}
-  Soilder_DEAD: {fileID: 0}
-  playerParticle: {fileID: 0}
+  playerAnim: {fileID: 95559502048124538, guid: cb04b41414719a5488c8b259e4598f25,
+    type: 2}
+  playerParticle: {fileID: 198757584030404522, guid: cb04b41414719a5488c8b259e4598f25,
+    type: 2}
 --- !u!212 &212638084816043360
 SpriteRenderer:
   m_ObjectHideFlags: 1

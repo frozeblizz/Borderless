@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-   
+
     public float speed;
     private float stop;
     private float near;
@@ -14,15 +14,17 @@ public class EnemyPatrol : MonoBehaviour
     //public Sprite right;
     public GameObject bulletSpawn;
     public Rigidbody2D projectile;
-    public Rigidbody2D soul;
+    public State state;
+
     public int shootingRange;
+    public int hazmatRange;
     bool delay = false;
     float delaytime = 1;
-   
+
     // Use this for initialization
     void Start()
     {
-        soul = GameObject.FindGameObjectWithTag("Soul").GetComponent<Rigidbody2D>();
+        state = GameObject.Find("State").GetComponent<State>();
 
         near = 5;
         stop = 5;
@@ -31,23 +33,82 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Soul").GetComponent<Transform>();
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        if (Vector2.Distance(transform.position, target.position) < near)
+        if (State.isPossessed == true && State.isDead == false)
         {
+            target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
+        else if (State.isPossessed == false && State.isDead == false)
+        {
+            player = GameObject.FindGameObjectWithTag("Soul").GetComponent<Transform>();
+        }
+
+        if (State.isDetected == true && State.isPossessed == false && this.gameObject.layer == 10)
+        {
+            if (Vector2.Distance(player.position, this.transform.position) < hazmatRange)
+            {
+                if (player.position.x < this.transform.position.x)
+                {
+                    this.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 0 * Time.deltaTime);
+                    player.GetComponent<Rigidbody2D>().AddForce(new Vector2(10, 0));
+                }
+                else
+                {
+                    this.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 0 * Time.deltaTime);
+                    player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0));
+                }
+
+            }
+            else
+            {
+                this.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 2 * Time.deltaTime);
+            }
+
+        }
+        if (player.position.x < transform.position.x && this.transform.localScale.x > 0 && State.isDead == false)
+        {
+            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+
+        }
+        else if (player.position.x >= transform.position.x && this.transform.localScale.x < 0 && State.isDead == false)
+        {
+            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+
+        }
+
+        if (State.isPossessed == true && target.position.x < transform.position.x && this.transform.localScale.x > 0)
+        {
+            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            isleftnaja = true;
+        }
+        else if (State.isPossessed == true && target.position.x >= transform.position.x && this.transform.localScale.x < 0)
+        {
+            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            isleftnaja = false;
+        }
+
+
+
+
+
+
+
+        if (State.isPossessed == true && Vector2.Distance(transform.position, target.position) < near)
+        {
+            State.isNear = true;
             transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
-            
+
         }
-        else if(Vector2.Distance(transform.position, target.position) > stop)
-        { 
-            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x,-2.1f), target.position, speed * Time.deltaTime);
-            
+        else if (State.isPossessed == true && Vector2.Distance(transform.position, target.position) > stop)
+        {
+            State.isNear = false;
+            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, -2.1f), target.position, speed * Time.deltaTime);
+
         }
-        else if(Vector2.Distance(transform.position, target.position) < stop && Vector2.Distance(transform.position, target.position) > near)
+        else if (State.isPossessed == true && Vector2.Distance(transform.position, target.position) < stop && Vector2.Distance(transform.position, target.position) > near)
         {
             transform.position = this.transform.position;
         }
-        if (Vector2.Distance(transform.position, target.position) < shootingRange)
+        if (State.isPossessed == true && Vector2.Distance(transform.position, target.position) < shootingRange)
         {
             if (this.gameObject.layer == 9 && !delay)
             {
@@ -66,27 +127,35 @@ public class EnemyPatrol : MonoBehaviour
                 delay = true;
             }
         }
-        
-        if(delay)
+
+        if (delay)
         {
             delaytime -= Time.deltaTime;
-            if(delaytime <=0)
+            if (delaytime <= 0)
             {
                 delay = false;
             }
         }
-        if (target.position.x < transform.position.x && this.transform.localScale.x > 0)
-        { 
-            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-            isleftnaja = true;
-        }
-        else if (target.position.x >= transform.position.x &&this.transform.localScale.x < 0)
+
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag == "Soul" && State.isDetected == true)
         {
-            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-            isleftnaja = false;
+            collision.gameObject.SetActive(false);
+            Time.timeScale = 0;
+            Debug.Log("HZHit!!");
+            StartCoroutine(waitOneFrame());
+            state.GameOver();
         }
 
-        
     }
 
+    IEnumerator waitOneFrame()
+    {
+        yield return null;
+
+    }
 }

@@ -294,6 +294,7 @@
     <Compile Include="Assets\Script\HazmatDetect.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
     <Compile Include="Assets\Script\ScoreBehaviour.cs" />
+    <Compile Include="Assets\Script\State.cs" />
     <Compile Include="Assets\Script\TimeBehaviour.cs" />
     <Compile Include="Assets\Script\UpgradeTrigger.cs" />
   </ItemGroup>
