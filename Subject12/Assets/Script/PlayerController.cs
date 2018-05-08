@@ -88,7 +88,6 @@ public class PlayerController : MonoBehaviour
                 //print(Vector3.Distance(transform.position, hitWith.transform.position));
                 if (Vector3.Distance(transform.position, hitWith.transform.position) <= 0.5f)
                 {
-                    audioSource.PlayOneShot(PossesAudio);
                     State.isPossessed = true;
                     hitWith.gameObject.GetComponent<Controller>().enabled = true;
                     hitWith.gameObject.GetComponentInChildren<Attack>().enabled = true;

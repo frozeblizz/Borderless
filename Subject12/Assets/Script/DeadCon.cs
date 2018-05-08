@@ -10,11 +10,17 @@ public class DeadCon : MonoBehaviour {
     public int hp;
     float delayt = 0.3f;
     bool die = false;
+    public AudioClip goreSound;
+    public AudioClip hitSound;
+    public AudioSource goreSource;
+    public AudioSource hitSource;
 
     // Use this for initialization
     void Start ()
     {
         anim = GetComponent<Animator>();
+        goreSource.clip = goreSound;
+        hitSource.clip = hitSound;
     }
 	
 	// Update is called once per frame
@@ -62,8 +68,10 @@ public class DeadCon : MonoBehaviour {
     public void decreaseHP()
     {
         hp -= 1;
-        if(hp <= 0)
+        hitSource.Play();
+        if (hp <= 0)
         {
+            goreSource.Play();
             Dead();
         }
     }

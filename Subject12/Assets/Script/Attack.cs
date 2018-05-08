@@ -9,14 +9,17 @@ public class Attack : MonoBehaviour {
     public float speed = 20;
     public float fireRate;
     private float nextFire;
-    
+    public AudioClip gunSound;
+    public AudioSource gunSource;
+    public AudioClip knifeSound;
+    public AudioSource knifeSource;
 
-   
+
     Rigidbody2D instantiatedProjectile;
 
     void Start()
     {
-        
+        gunSource.clip = gunSound;
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class Attack : MonoBehaviour {
             {
                 instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as
                 Rigidbody2D;
+                gunSource.Play();
 
                 if (Controller.right == true)
                 {
@@ -49,9 +53,9 @@ public class Attack : MonoBehaviour {
             if (this.gameObject.layer == 8)
             {
                 this.GetComponentInParent<Animator>().SetBool("attack", true);
+                knifeSource.Play();
                 StartCoroutine(delay());
                 Debug.Log("atk");
-
             }
             if (this.gameObject.layer == 10)
             {
