@@ -18,7 +18,7 @@ public class State : MonoBehaviour
 
         isPossessed = false;
         isNear = false;
-        isDetected = false;
+        isDetected = true;
 	}
 
 

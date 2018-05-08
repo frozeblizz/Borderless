@@ -142,7 +142,7 @@ public class EnemyPatrol : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Soul" && State.isDetected == true)
+        if (collision.gameObject.tag == "Soul" && State.isDetected == true && this.gameObject.layer == 10)
         {
             collision.gameObject.SetActive(false);
             Time.timeScale = 0;
