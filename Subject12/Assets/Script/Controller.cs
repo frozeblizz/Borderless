@@ -107,11 +107,11 @@ public class Controller : MonoBehaviour
                 onetime = false;
             }
         }
-        if (possessTime <= 0)
-        {
-            this.GetComponent<DeadCon>().Dead();
-            state.GameOver();
-        }
+        //if (possessTime <= 0)
+        //{
+        //    this.GetComponent<DeadCon>().Dead();
+        //    state.GameOver();
+        //}
     }
 
 
