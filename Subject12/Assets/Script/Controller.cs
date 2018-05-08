@@ -57,10 +57,9 @@ public class Controller : MonoBehaviour
         {
             right = false;
             left = true;
-
             rigid.AddForce(new Vector2(-moveSpeed, 0));
-           
-            if(this.transform.localScale.x > 0)
+            anim.SetBool("Walk", true);
+            if (this.transform.localScale.x > 0)
             {
                  Vector3 newScale = this.transform.localScale;
                  newScale.x *= -1;
@@ -73,7 +72,7 @@ public class Controller : MonoBehaviour
             left = false;
             right = true;
             rigid.AddForce(new Vector2(moveSpeed, 0));
-            
+            anim.SetBool("Walk", true);
             if (this.transform.localScale.x < 0)
             {
                  Vector3 newScale = this.transform.localScale;
@@ -107,11 +106,11 @@ public class Controller : MonoBehaviour
                 onetime = false;
             }
         }
-        //if (possessTime <= 0)
-        //{
-        //    this.GetComponent<DeadCon>().Dead();
-        //    state.GameOver();
-        //}
+        if (possessTime <= 0)
+        {
+            this.GetComponent<DeadCon>().Dead();
+            state.GameOver();
+        }
     }
 
 

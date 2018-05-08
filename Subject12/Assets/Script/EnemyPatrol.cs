@@ -15,6 +15,8 @@ public class EnemyPatrol : MonoBehaviour
     public GameObject bulletSpawn;
     public Rigidbody2D projectile;
     public State state;
+    public AudioClip suckSound;
+    public AudioSource suckSource;
 
     public int shootingRange;
     public int hazmatRange;
@@ -46,10 +48,12 @@ public class EnemyPatrol : MonoBehaviour
         {
             if (Vector2.Distance(player.position, this.transform.position) < hazmatRange)
             {
+                suckSource.Stop();
                 if (player.position.x < this.transform.position.x)
                 {
                     this.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 0 * Time.deltaTime);
                     player.GetComponent<Rigidbody2D>().AddForce(new Vector2(10, 0));
+                    suckSource.Play();
                 }
                 else
                 {

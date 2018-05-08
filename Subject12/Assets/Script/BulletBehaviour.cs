@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour
 {
     public GameObject[] blood;
+    
 
     // Use this for initialization
     void Start()

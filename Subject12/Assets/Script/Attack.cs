@@ -72,20 +72,20 @@ public class Attack : MonoBehaviour {
         yield return new WaitForSeconds(1 * Time.deltaTime);
         this.GetComponentInParent<Animator>().SetBool("attack", false);
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.tag == "Body" && this.GetComponentInParent<Animator>().GetBool("attack"))
-        {
-            Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
-            ScoreBehaviour.scorepoint += 100;
-            collision.GetComponentInParent<DeadCon>().decreaseHP();
-        }
-        if (collision.tag == "Head" && this.GetComponentInParent<Animator>().GetBool("attack"))
-        {
-            Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
-            ScoreBehaviour.scorepoint += 150;
-            collision.GetComponentInParent<DeadCon>().Dead();
-        }
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if(collision.tag == "Body" && this.GetComponentInParent<Animator>().GetBool("attack"))
+    //    {
+    //        Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
+    //        ScoreBehaviour.scorepoint += 100;
+    //        collision.GetComponentInParent<DeadCon>().decreaseHP();
+    //    }
+    //    if (collision.tag == "Head" && this.GetComponentInParent<Animator>().GetBool("attack"))
+    //    {
+    //        Instantiate(blood[Random.Range(0, blood.Length)], this.transform.position, this.transform.rotation);
+    //        ScoreBehaviour.scorepoint += 150;
+    //        collision.GetComponentInParent<DeadCon>().Dead();
+    //    }
+    //}
 
 }
