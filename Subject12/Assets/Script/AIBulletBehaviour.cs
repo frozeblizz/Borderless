@@ -35,7 +35,11 @@ public class AIBulletBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "wall")
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(gameObject);
         }
     }
 
