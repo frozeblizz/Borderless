@@ -24,7 +24,7 @@ public class BulletBehaviour : MonoBehaviour
             if (collision.gameObject.tag == "AI")
             {
                 Debug.Log("Hit!!");
-                Instantiate(blood[Random.Range(0, blood.Length)], new Vector2(this.transform.position.x,this.transform.position.y - 0.4f) , this.transform.rotation);
+                Instantiate(blood[Random.Range(0, blood.Length)], new Vector2(this.transform.position.x,this.transform.position.y - 0.3f) , this.transform.rotation);
                 collision.GetComponentInParent<DeadCon>().decreaseHP();
                 Destroy(gameObject);
             }
