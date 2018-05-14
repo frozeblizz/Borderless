@@ -471,11 +471,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691b6ab8f4cd45a43b14adc3b57235a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 6
   goreSound: {fileID: 8300000, guid: ab6348755efb63245b488d675b2083ac, type: 3}
   hitSound: {fileID: 8300000, guid: 995acced3c0727646aedeae6e06e14f6, type: 3}
   goreSource: {fileID: 82856865016812890}
   hitSource: {fileID: 82121357795617864}
+  state: {fileID: 0}
 --- !u!114 &114780583594252772
 MonoBehaviour:
   m_ObjectHideFlags: 1
