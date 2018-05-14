@@ -876,6 +876,11 @@ Prefab:
       propertyPath: state
       value: 
       objectReference: {fileID: 1813013339}
+    - target: {fileID: 114777789570521078, guid: e370becdf88f1f241ba0bdc724f7d1f4,
+        type: 2}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e370becdf88f1f241ba0bdc724f7d1f4, type: 2}
   m_IsPrefabParent: 0
@@ -1924,7 +1929,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1793461739
+  randomSeed: 936124646
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5466,6 +5471,11 @@ Prefab:
     - target: {fileID: 4341362454500810, guid: 9da314624d579f749b1689c744e61882, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114675472916382520, guid: 9da314624d579f749b1689c744e61882,
+        type: 2}
+      propertyPath: hp
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9da314624d579f749b1689c744e61882, type: 2}

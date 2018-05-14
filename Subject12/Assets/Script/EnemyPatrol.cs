@@ -38,10 +38,12 @@ public class EnemyPatrol : MonoBehaviour
         if (State.isPossessed == true && State.isDead == false)
         {
             target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            player = GameObject.FindGameObjectWithTag("Soul").GetComponent<Transform>();
         }
         else if (State.isPossessed == false && State.isDead == false)
         {
             player = GameObject.FindGameObjectWithTag("Soul").GetComponent<Transform>();
+            print("----"+player);
         }
 
         if (State.isDetected == true && State.isPossessed == false && this.gameObject.layer == 10)
@@ -99,8 +101,10 @@ public class EnemyPatrol : MonoBehaviour
         if (State.isPossessed == true && Vector2.Distance(transform.position, target.position) < near)
         {
             State.isNear = true;
-            transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
-
+            Vector3 newPos = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
+            newPos.y = transform.position.y;
+            transform.position = newPos;
+            
         }
         else if (State.isPossessed == true && Vector2.Distance(transform.position, target.position) > stop)
         {

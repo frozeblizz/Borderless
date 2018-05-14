@@ -93,8 +93,11 @@ public class PlayerController : MonoBehaviour
                     hitWith.gameObject.GetComponent<Controller>().enabled = true;
                     hitWith.gameObject.GetComponentInChildren<Attack>().enabled = true;
                     spriteRenderer.enabled = false;
-                    HazmatDetect.detect = false;
+
                     player.transform.SetParent(hitWith.transform);
+                    Vector3 pos = player.transform.localPosition;
+                    pos.x = 0;
+                    player.transform.localPosition = pos;
                     control.enabled = false;
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     rigid.velocity = Vector2.zero;

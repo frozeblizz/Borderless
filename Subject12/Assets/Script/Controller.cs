@@ -87,7 +87,7 @@ public class Controller : MonoBehaviour
             {
                 print("die");
                 unPosses();             
-                HazmatDetect.detect = true;
+
  
             }
            
