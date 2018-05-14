@@ -14,10 +14,11 @@ public class DeadCon : MonoBehaviour {
     public AudioClip hitSound;
     public AudioSource goreSource;
     public AudioSource hitSource;
-
+    public State state;
     // Use this for initialization
     void Start ()
     {
+        state = GameObject.Find("State").GetComponent<State>(); 
         anim = GetComponent<Animator>();
         goreSource.clip = goreSound;
         hitSource.clip = hitSound;
@@ -25,7 +26,7 @@ public class DeadCon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (hp <= 0)
+        if (hp == 0)
         {
             hp = -1;
             Debug.Log("die");
@@ -40,7 +41,6 @@ public class DeadCon : MonoBehaviour {
             }
             if (this.gameObject.layer == 10)
             {
-                HazmatDetect.detect = false;
                 ScoreBehaviour.scorepoint += 200;
             }
         }
@@ -50,7 +50,9 @@ public class DeadCon : MonoBehaviour {
         }
         if (delayt <= 0 && this.gameObject.tag == "Player")
         {
+            anim.SetBool("Dead", true);
             Time.timeScale = 0;
+            state.GameOver();
         }
     }
    public void Dead()
