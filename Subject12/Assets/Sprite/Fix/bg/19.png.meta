@@ -1,8 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 15f372f3864895145b826a8e906bf30c
-timeCreated: 1526417096
-licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: 19_0
@@ -11,13 +8,6 @@ TextureImporter:
     21300006: 19_3
     21300008: 19_4
   externalObjects: {}
-=======
-guid: 02523574d7e4ba5449c1026a950a2e45
-timeCreated: 1526417205
-licenseType: Free
-TextureImporter:
-  fileIDToRecycleName: {}
->>>>>>> d44ec87022c08d1171e846819a0e7116e4c3477e
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -26,11 +16,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
-<<<<<<< HEAD
     mipMapsPreserveCoverage: 0
     alphaTestReferenceValue: 0.5
-=======
->>>>>>> d44ec87022c08d1171e846819a0e7116e4c3477e
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -46,28 +33,17 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-<<<<<<< HEAD
     serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-=======
-    filterMode: -1
-    aniso: -1
-    mipBias: -1
-    wrapMode: 1
-  nPOTScale: 0
-  lightmap: 0
-  compressionQuality: 50
-  spriteMode: 1
->>>>>>> d44ec87022c08d1171e846819a0e7116e4c3477e
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,7 +61,6 @@ TextureImporter:
   platformSettings:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-<<<<<<< HEAD
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -97,15 +72,12 @@ TextureImporter:
   - buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-=======
->>>>>>> d44ec87022c08d1171e846819a0e7116e4c3477e
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-<<<<<<< HEAD
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
@@ -182,12 +154,6 @@ TextureImporter:
       tessellationDetail: 0
     outline: []
     physicsShape: []
-=======
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
-    outline: []
->>>>>>> d44ec87022c08d1171e846819a0e7116e4c3477e
   spritePackingTag: 
   userData: 
   assetBundleName: 
