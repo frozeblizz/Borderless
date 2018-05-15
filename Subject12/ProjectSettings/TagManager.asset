@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - AI
   - Bullet
   - Head
   - Body
@@ -12,7 +11,8 @@ TagManager:
   - Walkway
   - wall
   - Soul
-  - AI Doc
+  - Start
+  - AI
   layers:
   - Default
   - TransparentFX
