@@ -747,8 +747,8 @@ MonoBehaviour:
     type: 2}
   speed: 20
   fireRate: 0.25
-  gunSound: {fileID: 0}
-  gunSource: {fileID: 0}
+  gunSound: {fileID: 8300000, guid: f6665fcb79fb1be4ab1a85d458dc8ca7, type: 3}
+  gunSource: {fileID: 82949209143428482}
   knifeSound: {fileID: 0}
   knifeSource: {fileID: 0}
 --- !u!114 &114532074658617246

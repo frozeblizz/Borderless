@@ -52,10 +52,7 @@ public class Attack : MonoBehaviour {
             }
             if (this.gameObject.layer == 8)
             {
-                this.GetComponentInParent<Animator>().SetBool("attack", true);
                 knifeSource.Play();
-                
-                StartCoroutine(delay());
                 Debug.Log("atk");
             }
             if (this.gameObject.layer == 10)
@@ -74,6 +71,8 @@ public class Attack : MonoBehaviour {
         {
             if (collider.gameObject.tag == "AI")
             {
+                this.GetComponentInParent<Animator>().SetBool("attack", true);
+                StartCoroutine(delay());
                 Debug.Log("DRHIT");
                 collider.GetComponentInParent<DeadCon>().decreaseHP();
             }
