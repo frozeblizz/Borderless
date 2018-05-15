@@ -8,9 +8,11 @@ public class ButtonBehaviour : MonoBehaviour {
 
     public static bool trigger;
     public Text Credits;
+    GameObject EventSystem;
     // Use this for initialization
     void Start()
     {
+        EventSystem = GameObject.Find("EventSystem");
         trigger = false;
     }
 	// Update is called once per frame
@@ -37,6 +39,10 @@ public class ButtonBehaviour : MonoBehaviour {
         {
             SceneManager.LoadScene("MainMenu");
             Time.timeScale = 1;
+        }
+        if(Scene == "Credits")
+        {
+            EventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         }
     }
 
