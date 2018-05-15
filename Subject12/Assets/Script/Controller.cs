@@ -58,7 +58,7 @@ public class Controller : MonoBehaviour
             right = false;
             left = true;
             rigid.AddForce(new Vector2(-moveSpeed, 0));
-            anim.SetBool("Walk", true);
+             anim.SetBool("Walk", true);
             if (this.transform.localScale.x > 0)
             {
                  Vector3 newScale = this.transform.localScale;
