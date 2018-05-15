@@ -43,7 +43,7 @@ public class EnemyPatrol : MonoBehaviour
         else if (State.isPossessed == false && State.isDead == false)
         {
             
-            player = GameObject.Find("Player(Clone)").GetComponent<Transform>();
+            player = GameObject.Find("Player").GetComponent<Transform>();
             print("----"+player);
         }
 

@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour {
     {
         if(target == null)
         {
-            target = GameObject.Find("Player(Clone)");
+            target = GameObject.Find("Player");
         }
         Vector3 targetPosition = target.transform.position;
         Vector3 cameraPosition = cam.transform.position;
