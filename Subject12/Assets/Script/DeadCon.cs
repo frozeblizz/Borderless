@@ -17,6 +17,7 @@ public class DeadCon : MonoBehaviour {
     public State state;
     public GameObject Dying1;
     public GameObject Dying2;
+    public GameObject Q;
     public int D1;
     public int D2;
     // Use this for initialization
@@ -70,6 +71,7 @@ public class DeadCon : MonoBehaviour {
         {
             Dying1.SetActive(false);
             Dying2.SetActive(false);
+            Q.SetActive(false);
         }
 
     }
@@ -87,7 +89,15 @@ public class DeadCon : MonoBehaviour {
     }
     public void decreaseHP()
     {
-        hp -= 1;
+        if (this.gameObject.layer == 8)
+        {
+            hp -= 2;
+        }
+        else
+        {
+            hp -= 1;
+        }
+        
         hitSource.Play();
         if (hp <= 0)
         {

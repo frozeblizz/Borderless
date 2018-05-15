@@ -17,6 +17,7 @@ public class EnemyPatrol : MonoBehaviour
     public State state;
     public AudioClip suckSound;
     public AudioSource suckSource;
+    public GameObject Q;
 
     public int shootingRange;
     public int hazmatRange;
@@ -27,9 +28,10 @@ public class EnemyPatrol : MonoBehaviour
     void Start()
     {
         state = GameObject.Find("State").GetComponent<State>();
-
+        Q = this.gameObject.transform.GetChild(0).gameObject;
         near = 5;
         stop = 5;
+
     }
 
     // Update is called once per frame
@@ -74,23 +76,40 @@ public class EnemyPatrol : MonoBehaviour
         if (player.position.x < transform.position.x && this.transform.localScale.x > 0 && State.isDead == false)
         {
             this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            Q.GetComponent<SpriteRenderer>().flipX = !Q.GetComponent<SpriteRenderer>().flipX;
 
         }
         else if (player.position.x >= transform.position.x && this.transform.localScale.x < 0 && State.isDead == false)
         {
             this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-
+            Q.GetComponent<SpriteRenderer>().flipX = !Q.GetComponent<SpriteRenderer>().flipX;
         }
 
         if (State.isPossessed == true && target.position.x < transform.position.x && this.transform.localScale.x > 0)
         {
-            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            Q.SetActive(false);
+            Q.GetComponent<SpriteRenderer>().flipX = !Q.GetComponent<SpriteRenderer>().flipX;
+            Vector3 flipnaja = this.transform.localScale;
+            flipnaja.x *= -1;
+            this.transform.localScale = flipnaja;//new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             isleftnaja = true;
         }
         else if (State.isPossessed == true && target.position.x >= transform.position.x && this.transform.localScale.x < 0)
         {
-            this.transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            Q.SetActive(false);
+            Q.GetComponent<SpriteRenderer>().flipX = !Q.GetComponent<SpriteRenderer>().flipX;
+            Vector3 flipnaja = this.transform.localScale;
+            flipnaja.x *= -1;
+            this.transform.localScale = flipnaja;//new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             isleftnaja = false;
+        }
+        else if (State.isPossessed)
+        {
+            Q.SetActive(false);
+        }
+        else if (State.isPossessed == false)
+        {
+            Q.SetActive(true);
         }
 
 

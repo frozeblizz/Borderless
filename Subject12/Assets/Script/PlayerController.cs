@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public Sprite spritetemp;
-
+    private GameObject Q;
 
     public GameObject player;
     public State state;
@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour
                 //print(Vector3.Distance(transform.position, hitWith.transform.position));
                 if (Vector3.Distance(transform.position, hitWith.transform.position) <= 0.5f)
                 {
+                    
                     State.isDetected = false;
                     State.isPossessed = true;
                     Debug.Log(State.isPossessed);
@@ -96,6 +97,9 @@ public class PlayerController : MonoBehaviour
                     spriteRenderer.enabled = false;
                     StartCoroutine(Possess(this.gameObject));
                     player.transform.SetParent(hitWith.transform);
+                    Q = GameObject.Find("Question");
+                    Debug.Log(Q);
+                    Q.SetActive(false);
                     Vector3 pos = player.transform.localPosition;
                     pos.x = 0;
                     player.transform.localPosition = pos;
@@ -112,6 +116,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (hitWith.gameObject.layer == 8)
                     {
+                        Q.SetActive(false);
                         hitWith.gameObject.GetComponent<Animator>().Play("DRPosses", -1, 0);
                     }
                     else if (hitWith.gameObject.layer == 10)

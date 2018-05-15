@@ -32,6 +32,7 @@ public class Controller : MonoBehaviour
     private Sprite spritetemp;
     
     public ParticleSystem playerParticle;
+    public GameObject Q;
 
     void Start()
     {
@@ -48,7 +49,7 @@ public class Controller : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Soul");
 
     }
-    void Update() 
+    void Update()
     {
 
         Rigidbody2D rigid = GetComponent<Rigidbody2D>();
@@ -58,14 +59,14 @@ public class Controller : MonoBehaviour
             right = false;
             left = true;
             rigid.AddForce(new Vector2(-moveSpeed, 0));
-             anim.SetBool("Walk", true);
+            anim.SetBool("Walk", true);
             if (this.transform.localScale.x > 0)
             {
-                 Vector3 newScale = this.transform.localScale;
-                 newScale.x *= -1;
+                Vector3 newScale = this.transform.localScale;
+                newScale.x *= -1;
                 this.transform.localScale = newScale;
             }
-           
+
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -75,9 +76,9 @@ public class Controller : MonoBehaviour
             anim.SetBool("Walk", true);
             if (this.transform.localScale.x < 0)
             {
-                 Vector3 newScale = this.transform.localScale;
-                 newScale.x *= -1;
-                 this.transform.localScale = newScale;
+                Vector3 newScale = this.transform.localScale;
+                newScale.x *= -1;
+                this.transform.localScale = newScale;
             }
         }
         if (playerController.cache != null)
@@ -85,18 +86,19 @@ public class Controller : MonoBehaviour
             //Debug.Log("not null");
             if (Input.GetKeyDown(KeyCode.E))
             {
-                print("die");
-                unPosses();             
 
- 
+                print("die");
+                unPosses();
+
+
             }
-           
+
             if (anim.GetBool("Dead") && State.isPossessed == true)
             {
                 state.GameOver();
             }
         }
-        
+
         if (State.isPossessed == true)
         {
             possessTime -= 1 * Time.deltaTime;
@@ -110,6 +112,10 @@ public class Controller : MonoBehaviour
         {
             this.GetComponent<DeadCon>().Dead();
             state.GameOver();
+        }
+        if (Control.enabled)
+        {
+            Q.SetActive(false);
         }
     }
 
