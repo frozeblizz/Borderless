@@ -132,20 +132,22 @@ public class Controller : MonoBehaviour
         playerController.cache.SetActive(true);
         player.transform.SetParent(null);
         player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-
+        
         playerController.cache = null;
         StartCoroutine(delaySprite());
 
-        StartCoroutine(getOut());
+        
         this.GetComponent<DeadCon>().Dead();
         bulletSpawn.SetActive(false);
         PlayerController.wanderTime = 5;
         State.isPossessed = false;
         State.isDetected = true;
+        Debug.Log(State.isPossessed);
         playerAnim.enabled = true;
         playerParticle.enableEmission = true;
         playerAnim.Play("Ex", -1, 0);
         Control.enabled = false;
+        StartCoroutine(getOut());
     }
 
 

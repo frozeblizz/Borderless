@@ -42,7 +42,8 @@ public class EnemyPatrol : MonoBehaviour
         }
         else if (State.isPossessed == false && State.isDead == false)
         {
-            player = GameObject.FindGameObjectWithTag("Soul").GetComponent<Transform>();
+            
+            player = GameObject.Find("Player(Clone)").GetComponent<Transform>();
             print("----"+player);
         }
 

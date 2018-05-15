@@ -10,7 +10,8 @@ public class EnemySpawn : MonoBehaviour {
     private float nextSpawn;
     private int random;
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         StartCoroutine(Spawn());
     }
 

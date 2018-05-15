@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     public PlayerController control;
 
 
-    [HideInInspector]
+   
     public GameObject cache;
 
     [HideInInspector]
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         particle = GetComponent<ParticleSystem>();
-
+        state = GameObject.Find("State").GetComponent<State>();
         wanderTime = 5;
         moveSpeed = 30;
     }
@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
                 {
                     State.isDetected = false;
                     State.isPossessed = true;
+                    Debug.Log(State.isPossessed);
                     hitWith.gameObject.GetComponent<Controller>().enabled = true;
                     hitWith.gameObject.GetComponentInChildren<Attack>().enabled = true;
                     spriteRenderer.enabled = false;
@@ -102,7 +103,7 @@ public class PlayerController : MonoBehaviour
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     rigid.velocity = Vector2.zero;
 
-                    StartCoroutine(GTFO(gameObject));
+                    StartCoroutine(Possess(this.gameObject));
                     Controller.possessTime = 15;
                     hitWith.gameObject.GetComponent<EnemyPatrol>().enabled = false;
                     if (hitWith.gameObject.layer == 9)
@@ -130,10 +131,11 @@ public class PlayerController : MonoBehaviour
 
     }
     
-    IEnumerator GTFO(GameObject player)
+    IEnumerator Possess(GameObject player)
     {
         yield return null;
         cache = player;
+        Debug.Log(cache);
     }
 
     IEnumerator Kapip()

@@ -7,10 +7,13 @@ public class CameraFollow : MonoBehaviour {
     public GameObject target;
 
 
-
     // Update is called once per frame
     void Update()
     {
+        if(target == null)
+        {
+            target = GameObject.Find("Player(Clone)");
+        }
         Vector3 targetPosition = target.transform.position;
         Vector3 cameraPosition = cam.transform.position;
 

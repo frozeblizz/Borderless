@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class ButtonBehaviour : MonoBehaviour {
 
     public static bool trigger;
-
+    public Text Credits;
     // Use this for initialization
     void Start()
     {
@@ -19,16 +19,26 @@ public class ButtonBehaviour : MonoBehaviour {
 		
 	}
 
-    public void Clicked(string Scene)
+    public void OnClicked(string Scene)
     {
     
-        if(Scene == "Prototype")
+        if(Scene == "Game")
         {
-            SceneManager.LoadScene("Prototype");
+            State.isDead = false;
+            State.isPossessed = false;
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Game");
         }
-        if(Scene == "Quit")
+        if(Scene == "Exit")
         {
             Application.Quit();
         }
+        if(Scene == "Main")
+        {
+            SceneManager.LoadScene("MainMenu");
+            Time.timeScale = 1;
+        }
     }
+
+  
 }
