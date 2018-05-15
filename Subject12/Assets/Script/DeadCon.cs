@@ -15,6 +15,10 @@ public class DeadCon : MonoBehaviour {
     public AudioSource goreSource;
     public AudioSource hitSource;
     public State state;
+    public GameObject Dying1;
+    public GameObject Dying2;
+    public int D1;
+    public int D2;
     // Use this for initialization
     void Start ()
     {
@@ -54,6 +58,20 @@ public class DeadCon : MonoBehaviour {
             Time.timeScale = 0;
             state.GameOver();
         }
+        if (hp <= D1 && die== false)
+        {
+            Dying1.SetActive(true);
+        }
+        if (hp <= D2 && die == false)
+        {
+            Dying2.SetActive(true);
+        }
+        if (die == true)
+        {
+            Dying1.SetActive(false);
+            Dying2.SetActive(false);
+        }
+
     }
    public void Dead()
     {

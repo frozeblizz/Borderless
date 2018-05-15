@@ -68,13 +68,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4710395827770628}
   - component: {fileID: 212492066022607174}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Dying1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1859101822103694
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,13 +117,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4722371035421572}
   - component: {fileID: 212009298404874532}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Dying2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1973924798653772
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,6 +727,10 @@ MonoBehaviour:
   goreSource: {fileID: 82790216695312304}
   hitSource: {fileID: 82949209143428482}
   state: {fileID: 0}
+  Dying1: {fileID: 1842303150304820}
+  Dying2: {fileID: 1973392602902046}
+  D1: 10
+  D2: 4
 --- !u!114 &114531879623494366
 MonoBehaviour:
   m_ObjectHideFlags: 1
