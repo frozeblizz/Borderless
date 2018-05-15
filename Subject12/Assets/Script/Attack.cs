@@ -54,6 +54,7 @@ public class Attack : MonoBehaviour {
             {
                 this.GetComponentInParent<Animator>().SetBool("attack", true);
                 knifeSource.Play();
+                
                 StartCoroutine(delay());
                 Debug.Log("atk");
             }
@@ -67,6 +68,19 @@ public class Attack : MonoBehaviour {
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(this.gameObject.layer == 8)
+        {
+            if (collider.gameObject.tag == "AI")
+            {
+                Debug.Log("DRHIT");
+                collider.GetComponentInParent<DeadCon>().decreaseHP();
+            }
+        }
+        
+        
+    }
     IEnumerator delay()
     {
         yield return new WaitForSeconds(1 * Time.deltaTime);
