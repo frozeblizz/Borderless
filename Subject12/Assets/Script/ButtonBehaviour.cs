@@ -29,7 +29,8 @@ public class ButtonBehaviour : MonoBehaviour {
             State.isDead = false;
             State.isPossessed = false;
             Time.timeScale = 1;
-            SceneManager.LoadScene("Game");
+            StartCoroutine(Wait(50f));
+            
         }
         if(Scene == "Exit")
         {
@@ -46,5 +47,10 @@ public class ButtonBehaviour : MonoBehaviour {
         }
     }
 
+    IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds * Time.deltaTime);
+        SceneManager.LoadScene("Game");
+    }
   
 }
