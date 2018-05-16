@@ -18,6 +18,7 @@ public class DeadCon : MonoBehaviour {
     public GameObject Dying1;
     public GameObject Dying2;
     public GameObject Q;
+    public GameObject Sucksound;
     public int D1;
     public int D2;
     // Use this for initialization
@@ -46,6 +47,7 @@ public class DeadCon : MonoBehaviour {
             }
             if (this.gameObject.layer == 10)
             {
+                Sucksound.SetActive(false);
                 ScoreBehaviour.scorepoint += 200;
             }
         }
