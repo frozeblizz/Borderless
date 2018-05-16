@@ -52,7 +52,7 @@ public class Attack : MonoBehaviour {
             }
             if (this.gameObject.layer == 8)
             {
-                knifeSource.Play();
+                //knifeSource.Play();
                 Debug.Log("atk");
             }
             if (this.gameObject.layer == 10)
