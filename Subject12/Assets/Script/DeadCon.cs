@@ -10,6 +10,8 @@ public class DeadCon : MonoBehaviour {
     public int hp;
     float delayt = 0.3f;
     bool die = false;
+    bool onetime = false;
+    bool twotime = false;
     public AudioClip goreSound;
     public AudioClip hitSound;
     public AudioSource goreSource;
@@ -32,24 +34,13 @@ public class DeadCon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (hp == 0)
+        if (hp <= 0 && onetime == false)
         {
-            hp = -1;
+            onetime = true;
             Debug.Log("die");
+            goreSource.Play();    
             Dead();
-            if(this.gameObject.layer == 8)
-            {
-                ScoreBehaviour.scorepoint += 100;
-            }
-            if (this.gameObject.layer == 9)
-            {
-                ScoreBehaviour.scorepoint += 150;
-            }
-            if (this.gameObject.layer == 10)
-            {
-                Sucksound.SetActive(false);
-                ScoreBehaviour.scorepoint += 200;
-            }
+            
         }
         if(die)
         {
@@ -57,12 +48,15 @@ public class DeadCon : MonoBehaviour {
         }
         if (delayt <= 0 && this.gameObject.tag == "Player")
         {
-            anim.SetBool("Dead", true);
-            StartCoroutine(Wait(40f));
-            state.GameOver();
+            State.isDead = true;
             
+            Debug.Log("player die");
+            anim.SetBool("Dead", true);
+            state.GameOver();
+           
+
         }
-        if (hp <= D1 && die== false)
+        if (hp <= D1 && die == false)
         {
             Dying1.SetActive(true);
         }
@@ -88,6 +82,22 @@ public class DeadCon : MonoBehaviour {
         this.GetComponent<EnemyPatrol>().enabled = false;
         this.GetComponent<Controller>().enabled = false;
         
+        if (this.gameObject.layer == 8)
+        {
+            ScoreBehaviour.scorepoint += 100;
+           
+        }
+        if (this.gameObject.layer == 9)
+        {
+            ScoreBehaviour.scorepoint += 150;
+            
+        }
+        if (this.gameObject.layer == 10)
+        {
+            Sucksound.SetActive(false);
+            ScoreBehaviour.scorepoint += 200;
+            
+        }
         //this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
     public void decreaseHP()
@@ -102,11 +112,7 @@ public class DeadCon : MonoBehaviour {
         }
         
         hitSource.Play();
-        if (hp <= 0)
-        {
-            goreSource.Play();
-            Dead();
-        }
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -123,6 +129,6 @@ public class DeadCon : MonoBehaviour {
    IEnumerator Wait(float seconds)
     {
         yield return new WaitForSeconds(seconds * Time.deltaTime);
-        Time.timeScale = 1;
+        Time.timeScale = 0;
     }
 }

@@ -27,7 +27,7 @@ public class ButtonBehaviour : MonoBehaviour {
         {
             State.isDead = false;
             State.isPossessed = false;
-            Time.timeScale = 1;
+            
             StartCoroutine(Wait(50f));
             
         }
@@ -37,8 +37,9 @@ public class ButtonBehaviour : MonoBehaviour {
         }
         if(Scene == "Main")
         {
-            SceneManager.LoadScene("MainMenu");
             Time.timeScale = 1;
+            SceneManager.LoadScene("MainMenu");
+            
         }
         if(Scene == "Credits")
         {
@@ -50,6 +51,7 @@ public class ButtonBehaviour : MonoBehaviour {
     {
         yield return new WaitForSeconds(seconds * Time.deltaTime);
         SceneManager.LoadScene("Game");
+        Time.timeScale = 1;
     }
   
 }

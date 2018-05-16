@@ -184,6 +184,8 @@ RectTransform:
   m_Children:
   - {fileID: 1682109976}
   - {fileID: 1752208759}
+  - {fileID: 867084200}
+  - {fileID: 1043464381}
   m_Father: {fileID: 1258844523}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -266,14 +268,14 @@ RectTransform:
   m_GameObject: {fileID: 150146783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.0877144, y: 1.0001245, z: 1.0001245}
+  m_LocalScale: {x: 0.2720617, y: 0.23133872, z: 0.23133872}
   m_Children: []
-  m_Father: {fileID: 1258844523}
-  m_RootOrder: 5
+  m_Father: {fileID: 867084200}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 587, y: 3.0359344}
+  m_AnchoredPosition: {x: 74.36896, y: 17.85624}
   m_SizeDelta: {x: 43.8, y: 71.964}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &150146785
@@ -638,14 +640,14 @@ RectTransform:
   m_GameObject: {fileID: 221260276}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.0874987, y: 0.9999993, z: 0.9999993}
+  m_LocalScale: {x: 0.2720335, y: 0.23130973, z: 0.23130973}
   m_Children: []
-  m_Father: {fileID: 1258844523}
-  m_RootOrder: 7
+  m_Father: {fileID: 1043464381}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 697.00006, y: 3.0359516}
+  m_AnchoredPosition: {x: 88.703674, y: 17.856241}
   m_SizeDelta: {x: 43.8, y: 71.964}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &221260278
@@ -916,14 +918,14 @@ RectTransform:
   m_GameObject: {fileID: 327931955}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.0874987, y: 0.9999993, z: 0.9999993}
+  m_LocalScale: {x: 0.2720335, y: 0.23130973, z: 0.23130973}
   m_Children: []
-  m_Father: {fileID: 1258844523}
-  m_RootOrder: 8
+  m_Father: {fileID: 1043464381}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 697.00006, y: 3.0359516}
+  m_AnchoredPosition: {x: 88.703674, y: 17.856241}
   m_SizeDelta: {x: 43.8, y: 71.964}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &327931957
@@ -1268,14 +1270,14 @@ RectTransform:
   m_GameObject: {fileID: 759840849}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.0874987, y: 0.9999993, z: 0.9999993}
+  m_LocalScale: {x: 0.2720335, y: 0.23130973, z: 0.23130973}
   m_Children: []
-  m_Father: {fileID: 1258844523}
-  m_RootOrder: 6
+  m_Father: {fileID: 867084200}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 697, y: 3.0359516}
+  m_AnchoredPosition: {x: 88.703674, y: 17.856241}
   m_SizeDelta: {x: 43.8, y: 71.964}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &759840851
@@ -1384,6 +1386,41 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &867084199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 867084200}
+  m_Layer: 5
+  m_Name: Upgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &867084200
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 867084199}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 150146784}
+  - {fileID: 759840850}
+  m_Father: {fileID: 124536279}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.0000009536743}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &897295156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1495,6 +1532,41 @@ MonoBehaviour:
   - {fileID: 1973924798653772, guid: ac9565fbd9d096d44a284d5a59a62db5, type: 2}
   speed: 90
   spawnRate: 5
+--- !u!1 &1043464380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1043464381}
+  m_Layer: 5
+  m_Name: Upgrade_Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1043464381
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1043464380}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 221260277}
+  - {fileID: 327931956}
+  m_Father: {fileID: 124536279}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.0000009536743}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1045976207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,10 +1932,6 @@ RectTransform:
   - {fileID: 498049983}
   - {fileID: 2062785492}
   - {fileID: 124536279}
-  - {fileID: 150146784}
-  - {fileID: 759840850}
-  - {fileID: 221260277}
-  - {fileID: 327931956}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2162,7 +2230,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Game
+          m_StringArgument: Main
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2412,7 +2480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c338da36ec849545a282560a2ee27e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeMenu: {fileID: 0}
+  upgradeMenu: {fileID: 1043464380}
 --- !u!4 &1771124119
 Transform:
   m_ObjectHideFlags: 0

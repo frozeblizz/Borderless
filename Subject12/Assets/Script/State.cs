@@ -25,6 +25,6 @@ public class State : MonoBehaviour
     public void GameOver()
     {
         gameOver.enabled = true;
-        isDead = true;
+        //isDead = true;
     }
 }
