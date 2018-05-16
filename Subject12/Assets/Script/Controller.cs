@@ -41,7 +41,8 @@ public class Controller : MonoBehaviour
         playerController = GameObject.FindGameObjectWithTag("Soul").GetComponent<PlayerController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spritetemp = spriteRenderer.sprite;
-             
+        playerAnim = GameObject.Find("Player").GetComponent<Animator>();
+   
     }
 
     private void Awake()
@@ -86,9 +87,10 @@ public class Controller : MonoBehaviour
             //Debug.Log("not null");
             if (Input.GetKeyDown(KeyCode.E))
             {
-
+                
                 print("die");
                 unPosses();
+                
 
 
             }
@@ -145,7 +147,7 @@ public class Controller : MonoBehaviour
         
         this.GetComponent<DeadCon>().Dead();
         bulletSpawn.SetActive(false);
-        PlayerController.wanderTime = 5;
+       
         State.isPossessed = false;
         State.isDetected = true;
         Debug.Log(State.isPossessed);
@@ -154,6 +156,7 @@ public class Controller : MonoBehaviour
         playerAnim.Play("Ex", -1, 0);
         Control.enabled = false;
         StartCoroutine(getOut());
+        PlayerController.wanderTime = 5;
     }
 
 

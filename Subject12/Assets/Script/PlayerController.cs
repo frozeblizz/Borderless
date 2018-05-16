@@ -42,6 +42,11 @@ public class PlayerController : MonoBehaviour
         state = GameObject.Find("State").GetComponent<State>();
         wanderTime = 5;
         moveSpeed = 30;
+       
+    }
+    private void Awake()
+    {
+        anim.Play("Ex", -1, 0);
     }
 
     // Update is called once per frame
@@ -88,7 +93,7 @@ public class PlayerController : MonoBehaviour
                 //print(Vector3.Distance(transform.position, hitWith.transform.position));
                 if (Vector3.Distance(transform.position, hitWith.transform.position) <= 0.5f)
                 {
-                    
+                    anim.StopPlayback();
                     State.isDetected = false;
                     State.isPossessed = true;
                     Debug.Log(State.isPossessed);
