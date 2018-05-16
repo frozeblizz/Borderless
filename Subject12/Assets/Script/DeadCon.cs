@@ -58,8 +58,9 @@ public class DeadCon : MonoBehaviour {
         if (delayt <= 0 && this.gameObject.tag == "Player")
         {
             anim.SetBool("Dead", true);
-            Time.timeScale = 0;
+            StartCoroutine(Wait(40f));
             state.GameOver();
+            
         }
         if (hp <= D1 && die== false)
         {
@@ -119,11 +120,9 @@ public class DeadCon : MonoBehaviour {
         }
 
     }
-    /*private void OnCollisionEnter2D(Collision2D hitWith)
+   IEnumerator Wait(float seconds)
     {
-        if (hitWith.gameObject.tag == "Bullet")
-        {
-            hp -= 1;
-        }
-    }*/
+        yield return new WaitForSeconds(seconds * Time.deltaTime);
+        Time.timeScale = 1;
+    }
 }
