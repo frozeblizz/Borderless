@@ -6,7 +6,7 @@ using System;
 
 public class Controller : MonoBehaviour
 {
-    public static float possessTime = 15;
+    
     public float delayt = 0.3f;
     public int moveSpeed = 30;
 
@@ -101,20 +101,6 @@ public class Controller : MonoBehaviour
             }
         }
 
-        if (State.isPossessed == true)
-        {
-            possessTime -= 1 * Time.deltaTime;
-            if (onetime)
-            {
-                StartCoroutine(Kapip());
-                onetime = false;
-            }
-        }
-        if (possessTime <= 0)
-        {
-            this.GetComponent<DeadCon>().Dead();
-            state.GameOver();
-        }
         if (Control.enabled)
         {
             Q.SetActive(false);
@@ -167,19 +153,7 @@ public class Controller : MonoBehaviour
         yield return null;
         playerController.control.enabled = true;
     }
-    IEnumerator Kapip()
-    {
-        while (true)
-        {
-            //yield return new WaitForSeconds(time);
-            spriteRenderer.sprite = spritetemp;
-            yield return new WaitForSeconds(possessTime * Time.deltaTime);
-            //  Debug.Log("fuck");
-            spriteRenderer.sprite = null;
-            yield return new WaitForSeconds(possessTime * Time.deltaTime);
-        }
-
-    }
+  
     IEnumerator delaySprite()
     {
         yield return new WaitForSeconds(0.15f);

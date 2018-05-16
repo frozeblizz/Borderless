@@ -6,9 +6,11 @@ public class UpgradeTrigger : MonoBehaviour
 {
     public GameObject upgradeMenu;
     public static bool isTrigger;
+    private int tempScore;
 	// Use this for initialization
 	void Start ()
     {
+        tempScore = 1500;
         isTrigger = false;
         upgradeMenu.SetActive(false);
 	}
@@ -16,8 +18,9 @@ public class UpgradeTrigger : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if(ScoreBehaviour.scorepoint >= 1500 && isTrigger == false)
+		if(ScoreBehaviour.scorepoint >= tempScore && isTrigger == false)
         {
+           
             
             upgradeMenu.SetActive(true);
 
@@ -36,15 +39,13 @@ public class UpgradeTrigger : MonoBehaviour
                 isTrigger = true;
                 ScoreBehaviour.multiplier += 0.1f;
             }
-            if (ButtonBehaviour.trigger == true)
-            {
-                upgradeMenu.SetActive(false);
-                
-            }
+           
         }
         if (isTrigger == true)
         {
             upgradeMenu.SetActive(false);
+            isTrigger = false;
+            tempScore = tempScore * 2;
 
         }
     }

@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
                     rigid.velocity = Vector2.zero;
 
                     
-                    Controller.possessTime = 15;
+
                     hitWith.gameObject.GetComponent<EnemyPatrol>().enabled = false;
                     if (hitWith.gameObject.layer == 9)
                     {
