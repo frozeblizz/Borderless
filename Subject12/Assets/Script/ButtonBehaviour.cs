@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class ButtonBehaviour : MonoBehaviour {
 
     public static bool trigger;
-    public Text Credits;
     GameObject EventSystem;
     // Use this for initialization
     void Start()
