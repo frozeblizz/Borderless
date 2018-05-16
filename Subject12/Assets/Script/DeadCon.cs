@@ -11,7 +11,7 @@ public class DeadCon : MonoBehaviour {
     float delayt = 0.3f;
     bool die = false;
     bool onetime = false;
-    bool twotime = false;
+
     public AudioClip goreSound;
     public AudioClip hitSound;
     public AudioSource goreSource;
